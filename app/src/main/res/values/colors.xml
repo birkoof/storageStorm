@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#a00018</color>
+    <color name="colorPrimaryDark">#87000b</color>
+    <color name="colorAccent">#ffb3b6</color>
+    <color name="material_50">#f6e0e4</color>
+    <color name="material_100">#e7b3bc</color>
+    <color name="material_200">#d88090</color>
+    <color name="material_300">#c84d63</color>
+    <color name="material_400">#bc2641</color>
+    <color name="material_500">#b00020</color>
+    <color name="material_600">#a9001c</color>
+    <color name="material_700">#a00018</color>
+    <color name="material_800">#970013</color>
+    <color name="material_900">#87000b</color>
+    <color name="material_A100">#ffb3b6</color>
+    <color name="material_A200">#ff8085</color>
+    <color name="material_A400">#ff4d53</color>
+    <color name="material_A700">#ff343b</color>
+</resources>
