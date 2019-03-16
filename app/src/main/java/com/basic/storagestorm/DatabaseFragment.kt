@@ -12,27 +12,29 @@ import android.view.ViewGroup
 class DatabaseFragment : Fragment() {
 
     private val pathList = mutableListOf<String>()
+    private val collectionList = mutableListOf<Pair<Int, Any>>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_database, container, false)
 
-        // TODO feed path legally
-        pathList.add("Just")
-        pathList.add("Testing")
-        pathList.add("Path")
-        pathList.add("Recycler")
-        pathList.add("View")
-        pathList.add("Just2")
-        pathList.add("Testing2")
-        pathList.add("Path")
-        pathList.add("Path")
-        pathList.add("Recycler2")
-        pathList.add("View2")
-
+        // TODO feed data legally
+        pathList.add("Home")
         val recyclerPath = view.findViewById<RecyclerView>(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
+
+        collectionList.add(Pair(Constants.CATEGORY, "collections"))
+        collectionList.add(Pair(Constants.COLLECTION, Collection("Customers")))
+        collectionList.add(Pair(Constants.COLLECTION, Collection("Cities")))
+        collectionList.add(Pair(Constants.COLLECTION, Collection("Destinations")))
+        collectionList.add(Pair(Constants.CATEGORY, "testing"))
+        collectionList.add(Pair(Constants.COLLECTION, Collection("Attractions")))
+        collectionList.add(Pair(Constants.COLLECTION, Collection("Hotels")))
+
+        val recyclerContent = view.findViewById<RecyclerView>(R.id.recyclerContent)
+        recyclerContent.adapter = DatabaseContentAdapter(collectionList, activity)
+
         return view
     }
 

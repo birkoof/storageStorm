@@ -15,9 +15,19 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 
 
-    <View android:layout_width="match_parent"
-          android:layout_height="5dp"
+    <View android:id="@+id/shadeDivider"
+          android:layout_width="match_parent"
+          android:layout_height="7dp"
           android:layout_below="@+id/recyclerPath"
           style="@style/ShadeDivider"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/shadeDivider"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

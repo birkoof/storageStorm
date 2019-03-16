@@ -27,7 +27,7 @@
             android:layout_toEndOf="@+id/rightArrow"
             android:minWidth="20dp"
             android:gravity="center"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textColor="@android:color/black"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:background="?android:attr/selectableItemBackground"
