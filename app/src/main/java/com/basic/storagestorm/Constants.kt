@@ -6,5 +6,6 @@ class Constants {
         val COLLECTION = 101
         val DOCUMENT = 102
         val FIELD = 103
+        val HOME = "Home"
     }
 }
