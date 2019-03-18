@@ -99,7 +99,8 @@ class Helper {
                         "name" : "Batman",
                         "age" : 42,
                         "occupation" : "vigilante",
-                        "enemies" : ["joker", "superman", "everyone"]
+                        "enemies" : ["joker", "superman", "everyone"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w", "lNn7LjfvAKfcgDH89"]
                     }
                 """.trimIndent()
                 "iqfTdajhpksJdqqNJ" -> """
@@ -119,7 +120,8 @@ class Helper {
                         "name" : "Spiderman",
                         "age" : 22,
                         "occupation" : "hero",
-                        "enemies" : ["venom", "other spiders"]
+                        "enemies" : ["venom", "other spiders"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w", "lNn7LjfvAKfcgDH89"]
                     }
                 """.trimIndent()
                 "IAMZnurMgQAogSMhG" -> """
@@ -134,6 +136,7 @@ class Helper {
                 """.trimIndent()
                 "LXuqzJa3IgnZS4nTg" -> """
                     {
+                        "type" : "Document"
                         "id" : "LXuqzJa3IgnZS4nTg",
                         "name" : "Angry man",
                         "age" : 32,
@@ -158,7 +161,8 @@ class Helper {
                         "name" : "Old man",
                         "age" : 123,
                         "occupation" : "Human",
-                        "enemies" : ["humans"]
+                        "enemies" : ["humans"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w", "lNn7LjfvAKfcgDH89"]
                     }
                 """.trimIndent()
                 "0FpFtQpxsinfahxBu" -> """
@@ -168,7 +172,8 @@ class Helper {
                         "name" : "Young man",
                         "age" : 18,
                         "occupation" : "Human",
-                        "enemies" : ["humans"]
+                        "enemies" : ["humans"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w", "lNn7LjfvAKfcgDH89"]
                     }
                 """.trimIndent()
                 "wiMjzGMhTXUXw523o" -> """
@@ -178,7 +183,8 @@ class Helper {
                         "name" : "Tooth man",
                         "age" : 53,
                         "occupation" : "Human",
-                        "enemies" : ["humans"]
+                        "enemies" : ["humans"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w", "lNn7LjfvAKfcgDH89"]
                     }
                 """.trimIndent()
                 "UvrpWkXNKvNUBN3RA" -> """
@@ -197,7 +203,32 @@ class Helper {
                         "id" : "rDsZqpdOnhB4wvX8a",
                         "age" : 0,
                         "occupation" : "none",
-                        "enemies" : ["no", "one"]
+                        "enemies" : ["no", "one"],
+                        "collections" : ["BMvuKJ05IHBuQVQ7w"]
+                    }
+                """.trimIndent()
+                "BMvuKJ05IHBuQVQ7w" -> """
+                    {
+                        "type" : "Collection",
+                        "id" : "BMvuKJ05IHBuQVQ7w",
+                        "name" : "Cool Collection",
+                        "documents" : [
+                            "LXuqzJa3IgnZS4nTg",
+                            "2tPzXSa6Un8Xamgww",
+                            "UvrpWkXNKvNUBN3RA"
+                        ]
+                    }
+                """.trimIndent()
+                "lNn7LjfvAKfcgDH89" -> """
+                    {
+                        "type" : "Collection",
+                        "id" : "lNn7LjfvAKfcgDH89",
+                        "name" : "Penguin Collection",
+                        "documents" : [
+                            "LXuqzJa3IgnZS4nTg",
+                            "2tPzXSa6Un8Xamgww",
+                            "UvrpWkXNKvNUBN3RA"
+                        ]
                     }
                 """.trimIndent()
                 else -> """

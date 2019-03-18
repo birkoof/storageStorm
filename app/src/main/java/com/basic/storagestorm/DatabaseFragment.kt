@@ -46,24 +46,29 @@ class DatabaseFragment : Fragment() {
         return view
     }
 
-    fun updateContent(title: String, id: String, newData: MutableList<Pair<String, Any>>?) {
+    fun updateContent(title: String?, id: String, newData: MutableList<Pair<String, Any>>?) {
         val jsonFile = StringBuilder(parseJson(id))
         val parser: Parser = Parser.default()
-        val jsonObject: JsonObject = parser.parse(jsonFile!!) as JsonObject
+        val jsonObject: JsonObject = parser.parse(jsonFile) as JsonObject
 
         val type = when(jsonObject.string("type") as String) {
-            "Document" -> Constants.DOCUMENT // TODO
+            "Document" -> Constants.DOCUMENT
             "Collection" -> Constants.COLLECTION
             "Home" -> Constants.HOME
-            else -> ""
+            else -> Constants.FIELD
         }
 
         recyclerContent.adapter = DatabaseContentAdapter(newData, activity)
-        pathList.add(Path(title, id) {
-            updateContent(title, id, DataListProvider(this, activity).getData(Pair(type, id)))
-            removeAllPathsAfter(Path(title, id){})
+
+        // BEAUTIFUL KOTLIN -> for beginners: if (title != null) name = title else name = id
+        val name = title ?: id
+
+        pathList.add(Path(name, id) {
+            updateContent(name, id, DataListProvider(this, activity).getData(Pair(type, id)))
+            removeAllPathsAfter(Path(name, id){})
         })
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
+        recyclerPath.smoothScrollToPosition(pathList.size - 1)
     }
 
     private fun removeAllPathsAfter(path: Path) {
