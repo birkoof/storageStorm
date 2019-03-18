@@ -5,10 +5,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <FrameLayout
+    <RelativeLayout
             android:id="@+id/textWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
             android:background="?android:selectableItemBackground">
 
         <TextView
@@ -16,13 +17,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 tools:text="Collection Title"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"/>
-    </FrameLayout>
+
+        <TextView
+                android:id="@+id/tvCollectionID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:text="Collection ID"
+                android:layout_below="@+id/tvCollectionTitle"
+                android:textColor="@color/material_700"
+                android:textSize="16sp"/>
+
+    </RelativeLayout>
 
     <View android:id="@+id/shadeDivider"
           android:layout_width="match_parent"

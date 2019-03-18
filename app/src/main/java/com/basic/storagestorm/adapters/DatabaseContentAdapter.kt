@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.basic.storagestorm.Constants
 import com.basic.storagestorm.MainActivity
@@ -63,7 +64,10 @@ class DatabaseContentAdapter(private val list: MutableList<Pair<String, Any>>?, 
             val tvCollectionTitle = itemView.findViewById<TextView>(R.id.tvCollectionTitle)
             tvCollectionTitle?.text = collection.name
 
-            val textWrapper = itemView.findViewById<FrameLayout>(R.id.textWrapper)
+            val tvCollectionID = itemView.findViewById<TextView>(R.id.tvCollectionID)
+            tvCollectionID?.text = collection.id
+
+            val textWrapper = itemView.findViewById<RelativeLayout>(R.id.textWrapper)
             textWrapper.setOnClickListener {
                 collection.performAction()
             }
