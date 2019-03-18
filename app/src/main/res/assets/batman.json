@@ -1,0 +1,8 @@
+{
+  "type" : "Document",
+  "id" : "EDXqUVkOgLyGjszq4",
+  "name" : "Batman",
+  "age" : 42,
+  "occupation" : "vigilante",
+  "enemies" : ["joker", "superman", "everyone"]
+}

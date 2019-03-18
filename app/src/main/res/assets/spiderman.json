@@ -1,0 +1,8 @@
+{
+  "type" : "Document",
+  "id" : "Z8PzDjAbkVgVcxIAW",
+  "name" : "Spiderman",
+  "age" : 22,
+  "occupation" : "hero",
+  "enemies" : ["venom", "other spiders"]
+}

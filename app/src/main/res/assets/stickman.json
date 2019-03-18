@@ -1,0 +1,8 @@
+{
+  "type" : "Document",
+  "id" : "IAMZnurMgQAogSMhG",
+  "name" : "Stickman",
+  "age" : 0,
+  "occupation" : "character",
+  "enemies" : ["pencils", "erasers", "humans"]
+}

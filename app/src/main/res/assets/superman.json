@@ -1,0 +1,8 @@
+{
+  "type" : "Document",
+  "id" : "iqfTdajhpksJdqqNJ",
+  "name" : "Superman",
+  "age" : 36,
+  "occupation" : "hero",
+  "enemies" : ["batman", "kriptonite"]
+}

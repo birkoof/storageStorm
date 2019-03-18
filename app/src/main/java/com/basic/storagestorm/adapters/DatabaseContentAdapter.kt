@@ -19,31 +19,36 @@ import com.basic.storagestorm.models.Documents
 * @param list - a list of items TODO provide a real list and think about the data type
 * @param context - context of the activity
 * */
-class DatabaseContentAdapter(private val list: MutableList<Pair<Int, Any>>, private val context: Context?) :
+class DatabaseContentAdapter(private val list: MutableList<Pair<String, Any>>?, private val context: Context?) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when(viewType) {
-            Constants.COLLECTION -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.collection_row, parent, false))
-            Constants.CATEGORY -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.category_row, parent, false))
-            Constants.DOCUMENT -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.document_row, parent, false))
+            1 -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.category_row, parent, false))
+            2 -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.collection_row, parent, false))
+            3 -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.document_row, parent, false))
             else -> ViewHolder(LayoutInflater.from(context).inflate(R.layout.collection_row, parent, false))
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return list[position].first
+        return when (list!![position].first) {
+            Constants .CATEGORY -> 1
+            Constants.COLLECTION -> 2
+            Constants.DOCUMENT -> 3
+            else -> 0
+        }
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list!!.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
-           Constants.CATEGORY -> (holder as ViewHolder).bindCategory(list[position].second as String)
-           Constants.COLLECTION -> (holder as ViewHolder).bindCollection(list[position].second as Collection)
-           Constants.DOCUMENT -> (holder as ViewHolder).bindDocument(list[position].second as Documents)
+           1 -> (holder as ViewHolder).bindCategory(list!![position].second as String)
+           2 -> (holder as ViewHolder).bindCollection(list!![position].second as Collection)
+           3 -> (holder as ViewHolder).bindDocument(list!![position].second as Documents)
         }
     }
 

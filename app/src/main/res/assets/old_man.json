@@ -1,0 +1,8 @@
+{
+  "type" : "Document",
+  "id" : "wlu7ksAj8aKH3wKCz",
+  "name" : "Old man",
+  "age" : 123,
+  "occupation" : "Human",
+  "enemies" : ["humans"]
+}

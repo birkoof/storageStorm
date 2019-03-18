@@ -1,122 +1,78 @@
 package com.basic.storagestorm.providers
+import android.support.v4.app.FragmentActivity
 import com.basic.storagestorm.Constants
 import com.basic.storagestorm.DatabaseFragment
+import com.basic.storagestorm.Helper
 import com.basic.storagestorm.models.Collection
 import com.basic.storagestorm.models.Documents
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
+import java.io.InputStream
+import java.lang.Exception
 
 
-class DataListProvider(val fragment: DatabaseFragment) {
+class DataListProvider(val fragment: DatabaseFragment, val activity: FragmentActivity?) {
 
-    fun getData(id: String) : MutableList<Pair<Int, Any>> {
-        return when (id) {
+    fun getData(pair: Pair<String, String>) : MutableList<Pair<String, Any>>? {
+        return when (pair.first) {
             Constants.HOME -> getHomeData()
-            else -> feedDummyData(id)
+            Constants.COLLECTION -> (getCollection(pair.second).second as Collection).documents
+            // TODO documents
+            Constants.DOCUMENT -> getHomeData()
+            else -> getHomeData()
         }
     }
 
-    private fun getHomeData() : MutableList<Pair<Int, Any>> {
+    private fun getHomeData() : MutableList<Pair<String, Any>> {
 
-        val list = mutableListOf<Pair<Int, Any>>()
+        val list = mutableListOf<Pair<String, Any>>()
+        list.add(Pair(Constants.CATEGORY, "Collections"))
 
-        list.add(Pair(Constants.CATEGORY, "collections"))
-        list.add(Pair(Constants.COLLECTION, Collection("Customers", getData("Customers")) {
-            fragment.updateContent("Customers", "Customers", getData("Customers"))
-        }))
-        list.add(Pair(Constants.COLLECTION, Collection("Cities", getData("Cities")) {
-            fragment.updateContent("Cities", "Cities", getData("Cities"))
-        }))
-        list.add(Pair(Constants.COLLECTION, Collection("Destinations", getData("Destinations")) {
-            fragment.updateContent("Destinations", "Destinations", getData("Cities"))
-        }))
-        list.add(Pair(Constants.COLLECTION, Collection("Something", getData("Something")) {
-            fragment.updateContent("Something", "Something", getData("Something"))
-        }))
+        val jsonFile = StringBuilder(parseJson(Constants.HOME))
+        val parser: Parser = Parser.default()
+        val homeObject: JsonObject = parser.parse(jsonFile) as JsonObject
+        val collectionIDs = homeObject.array<String>("collections")
+
+        collectionIDs?.forEach {
+            list.add(getCollection(it))
+        }
+
         return list
     }
 
+    private fun getCollection(ID: String) : Pair<String, Any> {
+        val listOfDocuments = mutableListOf<Pair<String, Any>>()
 
-    private fun feedDummyData(id: String) : MutableList<Pair<Int, Any>> {
-        val newList = mutableListOf<Pair<Int, Any>>()
+        val jsonFile = StringBuilder(parseJson(ID))
+        val parser: Parser = Parser.default()
+        val jsonObject: JsonObject = parser.parse(jsonFile) as JsonObject
+        val documents = jsonObject.array<String>("documents")
 
-        // TODO feed from server
-        return when (id) {
-            "Customers" -> {
-                newList.add(Pair(Constants.CATEGORY, "documents"))
-                newList.add(Pair(Constants.COLLECTION, Collection("Cities", getData("Cities")) {
-                   fragment.updateContent("Cities", "Cities", getData("Cities"))
-                }))
-                newList.add(Pair(Constants.CATEGORY, "documents"))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Eman Basic")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("LVc28e3gaca4Sg5fdgsIp", null)))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Batman")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Oriflame")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Smoki")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Tops")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Jadro")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "KFC")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Subway")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Swing Kitchen")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Tribeka")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Enough")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "of Dummy")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Names")))
-                newList
-            }
-            "Cities" -> {
-                newList.add(Pair(Constants.CATEGORY, "documents"))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "New York")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("LVc28e3gaca4Sg5fdgsIp", null)))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Chicago")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "New Orleans")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Berlin")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Vienna")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Graz")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Sarajevo")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Mrkonjic Grad")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Velika Kladusa")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Aspartan")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Ubija")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Nemojte piti")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Coca Colu")))
-                newList
-            }
-            "Destinations" -> {
-                newList.add(Pair(Constants.CATEGORY, "documents"))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "North")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("LVc28e3gaca4Sg5fdgsIp", null)))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "East")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "West")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "South")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Nord")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "West")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Ost")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Sued")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Sjever")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Istok")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Zapad")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Jug")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "PFF")))
-                newList
-            }
-            else -> {
-                newList.add(Pair(Constants.CATEGORY, "documents"))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("LVc28e3gaca4Sg5fdgsIp", null)))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList.add(Pair(Constants.DOCUMENT, Documents("zxc2se3saca43g56tgsdr", "Has Title")))
-                newList
-            }
+        documents?.forEach {
+            val jsonFile2 = StringBuilder(parseJson(it))
+            val jsonObject2: JsonObject = parser.parse(jsonFile2) as JsonObject
+            val document = getDocument(jsonObject2.string("id") as String)
+            listOfDocuments.add(document)
         }
+
+        val title = jsonObject.string("name") as String
+
+        val collection = Collection(title, ID, listOfDocuments) {
+            fragment.updateContent(title, ID, listOfDocuments)
+        }
+
+        return Pair(Constants.COLLECTION, collection)
     }
+
+    private fun getDocument(ID: String) : Pair<String, Any> {
+        val jsonFile = StringBuilder(parseJson(ID))
+        val parser: Parser = Parser.default()
+        val jsonObject = parser.parse(jsonFile) as JsonObject
+        val title = jsonObject.string("name")
+
+        return Pair(Constants.DOCUMENT, Documents(ID, title))
+    }
+
+    private fun parseJson(id: String) : String { return Helper.getFileByID(id) }
 }
 
