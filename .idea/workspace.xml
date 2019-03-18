@@ -11,46 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50de3ca9-f3a2-45e7-ad85-fc4b2e3e1625" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_beust_klaxon_5_0_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_reflect_1_2_60_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/50_random_ids.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/angry_man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/batman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/cities_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/customers_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/destinations_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/fat_man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/home_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/ironman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/no_man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/old_man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/something_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/spiderman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/stickman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/superman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/tooth_man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/assets/young_man.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_lndmflngs_memorizing_pager_2_0_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Constants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Collection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Collection.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,7 +55,7 @@
           <entry key="dummy" value="8" />
           <entry key="gradle" value="1" />
           <entry key="json" value="809" />
-          <entry key="kt" value="11141" />
+          <entry key="kt" value="11208" />
           <entry key="txt" value="295" />
           <entry key="xml" value="646" />
         </counts>
@@ -98,7 +64,7 @@
         <counts>
           <entry key="Groovy" value="1" />
           <entry key="JSON" value="809" />
-          <entry key="Kotlin" value="11141" />
+          <entry key="Kotlin" value="11208" />
           <entry key="PLAIN_TEXT" value="303" />
           <entry key="XML" value="646" />
         </counts>
@@ -130,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="496">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="e#41#426#0" expanded="true" />
               </folding>
@@ -143,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1117">
-              <caret line="229" column="1" lean-forward="true" selection-start-line="229" selection-start-column="1" selection-end-line="229" selection-end-column="1" />
+              <caret line="229" column="1" selection-start-line="229" selection-start-column="1" selection-end-line="229" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -2843,7 +2809,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19488817" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19488817" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" sideWeight="0.50220263" side_tool="true" weight="0.19488817" />
@@ -3249,14 +3215,14 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1117">
-          <caret line="229" column="1" lean-forward="true" selection-start-line="229" selection-start-column="1" selection-end-line="229" selection-end-column="1" />
+          <caret line="229" column="1" selection-start-line="229" selection-start-column="1" selection-end-line="229" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="496">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="e#41#426#0" expanded="true" />
           </folding>

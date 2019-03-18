@@ -41,7 +41,8 @@ class DataListProvider(val fragment: DatabaseFragment, val activity: FragmentAct
     }
 
     private fun getCollection(ID: String) : Pair<String, Any> {
-        val listOfDocuments = mutableListOf<Pair<String, Any>>()
+        val documentsList = mutableListOf<Pair<String, Any>>()
+        documentsList.add(Pair(Constants.CATEGORY, "Documents"))
 
         val jsonFile = StringBuilder(parseJson(ID))
         val parser: Parser = Parser.default()
@@ -52,13 +53,13 @@ class DataListProvider(val fragment: DatabaseFragment, val activity: FragmentAct
             val jsonFile2 = StringBuilder(parseJson(it))
             val jsonObject2: JsonObject = parser.parse(jsonFile2) as JsonObject
             val document = getDocument(jsonObject2.string("id") as String)
-            listOfDocuments.add(document)
+            documentsList.add(document)
         }
 
         val title = jsonObject.string("name") as String
 
-        val collection = Collection(title, ID, listOfDocuments) {
-            fragment.updateContent(title, ID, listOfDocuments)
+        val collection = Collection(title, ID, documentsList) {
+            fragment.updateContent(title, ID, documentsList)
         }
 
         return Pair(Constants.COLLECTION, collection)
