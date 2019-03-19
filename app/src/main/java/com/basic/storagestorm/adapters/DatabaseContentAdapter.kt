@@ -1,6 +1,7 @@
 package com.basic.storagestorm.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -103,6 +104,9 @@ class DatabaseContentAdapter(private val list: MutableList<Pair<String, Any>>?, 
         fun bindField(field: Field) {
             val jsonView = itemView.findViewById<JsonViewLayout>(R.id.jsonView)
             jsonView.bindJson(field.json)
+            jsonView.setKeyColor(Color.BLACK)
+            jsonView.setValueTextColor(Color.parseColor("#b00020"))
+            jsonView.setValueNumberColor(Color.parseColor("#bc2641"))
         }
     }
 }

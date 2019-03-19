@@ -3,12 +3,13 @@ package com.basic.storagestorm
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 
-class UsersFragment : Fragment() {
+class UsersFragment : Fragment(), BackpressHandler {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -33,5 +34,10 @@ class UsersFragment : Fragment() {
 
     companion object {
         fun newInstance() = UsersFragment()
+    }
+
+    override fun onBackButtonPressed(): Boolean {
+        (activity as MainActivity).toDatabaseFragment()
+        return true
     }
 }

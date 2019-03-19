@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : FragmentActivity() {
+class MainActivity : FragmentActivity(), BackpressHandler {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_database -> {
@@ -77,5 +77,25 @@ class MainActivity : FragmentActivity() {
 
     override fun onAttachFragment(fragment: Fragment?) {
         super.onAttachFragment(fragment)
+    }
+
+    override fun onBackPressed() {
+        if (!onBackButtonPressed())
+            super.onBackPressed()
+    }
+
+    override fun onBackButtonPressed(): Boolean {
+        return (active as BackpressHandler).onBackButtonPressed()
+    }
+
+    fun toDatabaseFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            .hide(active)
+            .show(databaseFragment)
+            .commit()
+
+        active = databaseFragment
+        navigation.selectedItemId = R.id.navigation_database
     }
 }

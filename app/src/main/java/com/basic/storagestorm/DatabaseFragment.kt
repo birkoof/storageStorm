@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ import java.io.InputStream
 import java.lang.Exception
 
 
-class DatabaseFragment : Fragment() {
+class DatabaseFragment : Fragment(), BackpressHandler {
 
     private var pathList = mutableListOf<Path>()
     private var dataList : MutableList<Pair<String, Any>>? = null
@@ -29,11 +30,12 @@ class DatabaseFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_database, container, false)
 
         // TODO feed data legally
-        pathList.add(Path(Constants.HOME, Constants.HOME) {
-            updateContent(Constants.HOME, Constants.HOME,
-                DataListProvider(this, activity).getData(Pair(Constants.HOME, Constants.HOME)))
+        val homeData = DataListProvider(this, activity).getData(Pair(Constants.HOME, Constants.HOME))
 
-            removeAllPathsAfter(Path(Constants.HOME, Constants.HOME){})
+        pathList.add(Path(Constants.HOME, Constants.HOME, homeData) {
+            updateContent(Constants.HOME, Constants.HOME, homeData)
+
+            removeAllPathsAfter(Path(Constants.HOME, Constants.HOME, homeData){})
         })
         recyclerPath = view.findViewById(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
@@ -62,10 +64,10 @@ class DatabaseFragment : Fragment() {
 
         // BEAUTIFUL KOTLIN -> for beginners: if (title != null) name = title else name = id
         val name = title ?: id
-
-        pathList.add(Path(name, id) {
-            updateContent(name, id, DataListProvider(this, activity).getData(Pair(type, id)))
-            removeAllPathsAfter(Path(name, id){})
+        val data = DataListProvider(this, activity).getData(Pair(type, id))
+        pathList.add(Path(name, id, data) {
+            updateContent(name, id, data)
+            removeAllPathsAfter(Path(name, id, data){})
         })
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
         recyclerPath.smoothScrollToPosition(pathList.size - 1)
@@ -107,4 +109,16 @@ class DatabaseFragment : Fragment() {
     }
 
     private fun parseJson(id: String) : String { return Helper.getFileByID(id) }
+
+    override fun onBackButtonPressed(): Boolean {
+        if (pathList.size == 1)
+            return false
+
+        val path = pathList[pathList.size - 2]
+        updateContent(path.name, path.ID, path.content)
+        removeAllPathsAfter(path)
+
+        return true
+    }
+
 }

@@ -6,34 +6,29 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="DDDD" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50de3ca9-f3a2-45e7-ad85-fc4b2e3e1625" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_tzx_json_jsonhandleview_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Field.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/field_row.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/BackpressHandler.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Documents.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Documents.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,14 +52,16 @@
     <session id="1078924006">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -72,7 +69,7 @@
           <entry key="dummy" value="8" />
           <entry key="gradle" value="2" />
           <entry key="json" value="809" />
-          <entry key="kt" value="13747" />
+          <entry key="kt" value="14631" />
           <entry key="txt" value="354" />
           <entry key="xml" value="732" />
         </counts>
@@ -81,7 +78,7 @@
         <counts>
           <entry key="Groovy" value="2" />
           <entry key="JSON" value="809" />
-          <entry key="Kotlin" value="13747" />
+          <entry key="Kotlin" value="14631" />
           <entry key="PLAIN_TEXT" value="362" />
           <entry key="XML" value="732" />
         </counts>
@@ -92,7 +89,7 @@
           <entry key="gradle" value="5" />
           <entry key="java" value="1" />
           <entry key="json" value="59" />
-          <entry key="kt" value="31" />
+          <entry key="kt" value="37" />
           <entry key="txt" value="4" />
           <entry key="xml" value="15" />
         </counts>
@@ -103,7 +100,7 @@
           <entry key="Groovy" value="5" />
           <entry key="JAVA" value="1" />
           <entry key="JSON" value="59" />
-          <entry key="Kotlin" value="31" />
+          <entry key="Kotlin" value="37" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="15" />
         </counts>
@@ -113,52 +110,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-              <folding>
-                <element signature="e#41#498#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2103">
-              <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="17" column="17" selection-start-line="17" selection-end-line="17" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
-              <folding>
-                <element signature="e#41#695#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="611">
+              <caret line="107" column="64" selection-start-line="107" selection-start-column="64" selection-end-line="107" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/BackpressHandler.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="38" />
+            <state relative-caret-position="92">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -166,8 +130,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+            <state relative-caret-position="335">
+              <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+              <folding>
+                <element signature="e#32#594#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="726">
+              <caret line="38" selection-start-line="38" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="772">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -191,13 +185,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="74" column="60" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/field_row.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
               <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -205,9 +208,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Interface" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -2603,8 +2606,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/onBackHandler.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/database_content_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/database_path_row.xml" />
@@ -2614,7 +2615,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Documents.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseContentAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DataListProvider.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabasePathAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/angry_man.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/batman.json" />
@@ -2636,7 +2636,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/cities_collection.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Collection.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/Helper.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/assets/no_man.json" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/collection_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/document_row.xml" />
@@ -2648,6 +2647,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/field_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/BackpressHandler.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt" />
       </list>
     </option>
@@ -2663,7 +2667,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2724,16 +2728,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="storagestorm" type="462c0819:PsiDirectoryNode" />
-              <item name="json_files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="storagestorm" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2766,11 +2760,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="build.&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/build.gradle&#10;Consta&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;Constn&#9;PSI&#9;JAVA://com.sun.org.apache.bcel.internal.classfile.ConstantNameAndType&#10;DatabaseCont&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt&#10;build&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle&#10;Const&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;color&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/res/values/colors.xml&#10;manifest&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/AndroidManifest.xml&#10;build.gra&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="Path&#9;null&#9;null&#10;UsersF&#9;null&#9;null&#10;Fragment&#9;null&#9;null&#10;Main&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/MainActivity.kt&#10;build.&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/build.gradle&#10;Consta&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;Constn&#9;PSI&#9;JAVA://com.sun.org.apache.bcel.internal.classfile.ConstantNameAndType&#10;DatabaseCont&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt&#10;build&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle&#10;Const&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;color&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/res/values/colors.xml&#10;manifest&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/AndroidManifest.xml&#10;build.gra&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="device.picker.selection" value="988a98454c3033563930" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -2925,10 +2919,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="36" width="1920" height="1044" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19488817" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19488817" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" sideWeight="0.50220263" side_tool="true" weight="0.19488817" />
@@ -2991,11 +2984,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/fat_man.json" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/ironman.json" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/old_man.json" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/spiderman.json" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/stickman.json" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/superman.json" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/tooth_man.json" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/young_man.json" />
@@ -3021,13 +3009,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/home_list.json" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Assets/batman.json" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/home_list.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -3141,12 +3122,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/collection_row.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="633">
           <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -3169,10 +3150,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Documents.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/document_row.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="161">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tzx.json/jsonhandleview/1.1.0/3927a44b6e7d11de41cb66602fc81a75b825b1de/jsonhandleview-1.1.0-sources.jar!/com/dandan/jsonhandleview/library/JsonViewLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="314" column="16" selection-start-line="314" selection-start-column="16" selection-end-line="314" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3174">
+          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="17" selection-start-line="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -3183,81 +3203,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="17" column="17" selection-start-line="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/document_row.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/field_row.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2103">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tzx.json/jsonhandleview/1.1.0/3927a44b6e7d11de41cb66602fc81a75b825b1de/jsonhandleview-1.1.0-sources.jar!/com/dandan/jsonhandleview/library/JsonViewLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="314" column="16" selection-start-line="314" selection-start-column="16" selection-end-line="314" selection-end-column="16" />
-          <folding>
-            <element signature="e#11879#11880#0" expanded="true" />
-            <element signature="e#11917#11918#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
-          <folding>
-            <element signature="e#41#695#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="611">
+          <caret line="107" column="64" selection-start-line="107" selection-start-column="64" selection-end-line="107" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/providers/DataListProvider.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/BackpressHandler.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding>
-            <element signature="e#41#498#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="92">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Documents.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="38" selection-start-line="38" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="74" column="60" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.21/224a3bcfa1c088dd5d7c4a3958a68427b44c65dc/kotlin-stdlib-common-1.3.21-sources.jar!/generated/_Collections.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="357" column="23" selection-start-line="357" selection-start-column="23" selection-end-line="357" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Path.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+        <state relative-caret-position="335">
+          <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+          <folding>
+            <element signature="e#32#594#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
