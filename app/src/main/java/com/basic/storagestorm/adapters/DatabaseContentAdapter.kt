@@ -94,6 +94,7 @@ class DatabaseContentAdapter(private val list: MutableList<Pair<String, Any>>?, 
             jsonView.setKeyColor(Color.BLACK)
             jsonView.setValueTextColor(Color.parseColor("#b00020"))
             jsonView.setValueNumberColor(Color.parseColor("#bc2641"))
+            jsonView.expandAll()
         }
     }
 }
