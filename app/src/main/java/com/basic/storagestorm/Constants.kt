@@ -3,9 +3,9 @@ package com.basic.storagestorm
 class Constants {
     companion object {
         val CATEGORY = "Category"
-        val COLLECTION = "Collection"
-        val DOCUMENT = "Document"
-        val FIELD = "Field"
+        val COLLECTION = "Collections"
+        val DATA_OBJECT = "Data Objects"
+        val FIELD = "Fields"
         val HOME = "Home"
     }
 }

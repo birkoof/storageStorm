@@ -1,4 +1,10 @@
 package com.basic.storagestorm.models
 
-class Field(val id: String, val json: String) {
+import com.basic.storagestorm.providers.Server
+
+class Field(val ID: String) {
+
+    fun getJSON(): String {
+        return Server.getObjectJSON(ID)
+    }
 }

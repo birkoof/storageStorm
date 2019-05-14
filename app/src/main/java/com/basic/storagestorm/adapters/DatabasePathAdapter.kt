@@ -35,7 +35,7 @@ class DatabasePathAdapter(private val pathList: MutableList<Path>, private val c
         private var pathText = itemView.pathText as TextView
 
         fun bindPath(path: Path) {
-            pathText.text = path.name
+            pathText.text = path.name ?: path.ID
             pathText.setOnClickListener {
                 path.performAction()
             }
