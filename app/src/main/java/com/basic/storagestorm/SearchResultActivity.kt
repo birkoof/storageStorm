@@ -41,7 +41,7 @@ class SearchResultActivity : AppCompatActivity() {
                 searchTerm = params[0]
                 val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
                 // TODO replace with search method
-                ikarusApi.getCollBySid("s-000443")?.toMutableList()
+                ikarusApi.getCollBySid("s-000003")?.toMutableList()
             } catch (exception: IOException) {
                 null
             }
