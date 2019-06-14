@@ -1,7 +1,6 @@
 package com.basic.storagestorm
 
 import android.os.Bundle
-import android.provider.Settings
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -32,14 +31,14 @@ class MainActivity : FragmentActivity(), BackpressHandler {
 
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_users -> {
+            R.id.navigation_search -> {
                 supportFragmentManager
                     .beginTransaction()
                     .hide(active)
-                    .show(usersFragment)
+                    .show(searchFragment)
                     .commit()
 
-                active = usersFragment
+                active = searchFragment
 
                 return@OnNavigationItemSelectedListener true
             }
@@ -48,7 +47,7 @@ class MainActivity : FragmentActivity(), BackpressHandler {
     }
 
     private val databaseFragment = DatabaseFragment.newInstance()
-    private val usersFragment = UsersFragment.newInstance()
+    private val searchFragment = SearchFragment.newInstance()
     private val settingsFragment = SettingsFragment.newInstance()
     var active: Fragment = databaseFragment
 
@@ -59,8 +58,8 @@ class MainActivity : FragmentActivity(), BackpressHandler {
 
         // display database fragment first on start up
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, usersFragment, "databaseFragment")
-            .hide(usersFragment)
+            .add(R.id.fragmentContainer, searchFragment, "databaseFragment")
+            .hide(searchFragment)
             .commit()
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, settingsFragment, "databaseFragment")
