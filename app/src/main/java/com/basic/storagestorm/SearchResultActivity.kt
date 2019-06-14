@@ -1,10 +1,10 @@
 package com.basic.storagestorm
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.adapters.DatabaseContentAdapter
 import com.basic.storagestorm.models.DataObject
@@ -61,7 +61,9 @@ class SearchResultActivity : AppCompatActivity() {
 
             result.forEach {
                 resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
-                    Toast.makeText(this@SearchResultActivity, "TODO handle click", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this@SearchResultActivity, AboutDataObject::class.java)
+                    intent.putExtra(Constants.INTENT_EXTRA_OBJECT_ID, it)
+                    startActivity(intent)
                 }))
             }
 

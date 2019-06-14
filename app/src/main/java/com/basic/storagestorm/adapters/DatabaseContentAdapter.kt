@@ -89,7 +89,7 @@ class DatabaseContentAdapter(private val list: MutableList<Pair<String, Any>>?, 
 
         fun bindField(field: Field) {
             val jsonView = itemView.findViewById<JsonViewLayout>(R.id.jsonView)
-            jsonView.bindJson(field.getJSON())
+            jsonView.bindJson(field.json)
 
             // TODO add makeup
             jsonView.setKeyColor(Color.BLACK)

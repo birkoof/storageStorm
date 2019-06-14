@@ -13,5 +13,6 @@ class Constants {
 
         // intent extra
         val INTENT_EXTRA_SEARCH_WORD = "intent_extra_search_word"
+        val INTENT_EXTRA_OBJECT_ID = "intent_extra_object_id"
     }
 }
