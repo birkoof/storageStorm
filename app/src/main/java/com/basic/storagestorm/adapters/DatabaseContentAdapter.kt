@@ -16,7 +16,8 @@ import com.basic.storagestorm.models.Field
 import com.dandan.jsonhandleview.library.JsonViewLayout
 
 /*
-* Adapter class for the main recycler view that displays the actual data
+* Adapter class for a recycler view that displays the data
+* is flexible and can be reused in different activities/fragments
 *
 * @param list - list of items
 * @param context - context of the activity
