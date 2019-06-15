@@ -1,5 +1,9 @@
 package com.basic.storagestorm
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+
 class Helper {
     companion object {
         fun getFileByID(ID: String) : String {
@@ -256,6 +260,12 @@ class Helper {
 
         fun getRandomID(): String {
             return java.util.UUID.randomUUID().toString()
+        }
+
+        fun hasNetworkConnection(context: Context): Boolean {
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+            return activeNetwork?.isConnected == true
         }
     }
 }

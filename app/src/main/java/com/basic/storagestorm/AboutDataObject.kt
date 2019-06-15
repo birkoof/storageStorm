@@ -1,6 +1,5 @@
 package com.basic.storagestorm
 
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -11,11 +10,11 @@ import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.adapters.DatabaseContentAdapter
 import com.basic.storagestorm.models.Field
 import kotlinx.android.synthetic.main.activity_about_data_object.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.IOException
 
 class AboutDataObject : AppCompatActivity() {
-
-    private lateinit var ikarusSearch: IkarusSearch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +22,45 @@ class AboutDataObject : AppCompatActivity() {
 
         val objectID = intent.getStringExtra(Constants.INTENT_EXTRA_OBJECT_ID)
         objectID.let {
-            tvObjectID.text = "Object ID: $it"
-            ikarusSearch = IkarusSearch(this)
-            ikarusSearch.execute(it)
+            executeGet(it)
+        }
+    }
+
+    private fun executeGet(objectID: String) {
+        progressBar.visibility = View.VISIBLE
+        if (!Helper.hasNetworkConnection(this@AboutDataObject)) {
+            tvObjectID.text = "No network connection."
+            btnRetry.visibility = View.VISIBLE
+            btnRetry.setOnClickListener {
+                executeGet(objectID)
+            }
+            progressBar.visibility = View.GONE
+            return
+        }
+        btnRetry.visibility = View.GONE
+        doAsync {
+            val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
+            var objectJson: String?
+            try {
+                // TODO replace with search method
+                objectJson = ikarusApi.get(objectID)
+            } catch (exception: IOException) {
+                Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
+                return@doAsync
+            }
+            uiThread {
+                progressBar.visibility = View.GONE
+                if (objectJson.isNullOrEmpty()) {
+                    tvObjectID.text = "No results for $objectID."
+                    return@uiThread
+                }
+
+                tvObjectID.text = "Object ID: $objectID"
+                val resultData = mutableListOf<Pair<String, Any>>()
+                resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
+                resultData.add(Pair(Constants.FIELD, Field(objectJson)))
+                recyclerResult.adapter = DatabaseContentAdapter(resultData, this@AboutDataObject)
+            }
         }
     }
 
@@ -44,41 +79,5 @@ class AboutDataObject : AppCompatActivity() {
             true
         }
         else -> super.onOptionsItemSelected(item)
-    }
-
-
-    class IkarusSearch(private val context: AboutDataObject) : AsyncTask<String, Void, String>() {
-
-        private var objectID: String? = ""
-
-        override fun onPreExecute() {
-            super.onPreExecute()
-            context.progressBar.visibility = View.VISIBLE
-        }
-
-        override fun doInBackground(vararg params: String?): String? {
-            return try {
-                objectID = params[0]
-                val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
-                ikarusApi.get(objectID)
-            } catch (exception: IOException) {
-                null
-            }
-        }
-
-        override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
-            context.progressBar.visibility = View.GONE
-
-            if (result != null) {
-                val resultData = mutableListOf<Pair<String, Any>>()
-                resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
-                resultData.add(Pair(Constants.FIELD, Field(result)))
-                context.recyclerResult.adapter = DatabaseContentAdapter(resultData, context)
-            } else {
-                // TODO handle error
-                Toast.makeText(context, "An error ocurred", Toast.LENGTH_LONG).show()
-            }
-        }
     }
 }

@@ -69,17 +69,27 @@
     <last-search-timestamp>1560463917703</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50de3ca9-f3a2-45e7-ad85-fc4b2e3e1625" name="Default Changelist" comment="initial design with fragments">
+    <list default="true" id="50de3ca9-f3a2-45e7-ad85-fc4b2e3e1625" name="Default Changelist" comment="some weird gradle files - should be updated with gitignore">
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="426">
+              <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
               <folding>
                 <element signature="e#32#422#0" expanded="true" />
               </folding>
@@ -158,20 +168,68 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="61" selection-start-line="61" selection-end-line="64" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="267" column="53" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+              <folding>
+                <element signature="e#32#132#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-138" />
+          </provider>
+          <provider editor-type-id="android-manifest" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="681">
+              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="733">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="547">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -202,7 +260,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/old_man.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/spiderman.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/stickman.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_test_files/superman.json" />
@@ -218,7 +275,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/assets/no_man.json" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/collection_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/json_files/50_random_ids.txt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/BackpressHandler.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/UsersFragment.kt" />
@@ -236,12 +292,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Field.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SharedPreferences.kt" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Constants.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SharedPreference.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/history_item_row.xml" />
@@ -250,9 +303,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/adapters/SearchHistoryAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/DatabaseHandler.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_about_data_object.xml" />
         <option value="$PROJECT_DIR$/app/.gitignore" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml" />
       </list>
     </option>
   </component>
@@ -281,6 +339,36 @@
               <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
               <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="storageStorm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="storageStorm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="storagestorm" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -404,7 +492,7 @@
     <property name="SearchEverywhereHistoryKey" value="Path&#9;null&#9;null&#10;UsersF&#9;null&#9;null&#10;Fragment&#9;null&#9;null&#10;Main&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/MainActivity.kt&#10;build.&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/build.gradle&#10;Consta&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;Constn&#9;PSI&#9;JAVA://com.sun.org.apache.bcel.internal.classfile.ConstantNameAndType&#10;DatabaseCont&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/adapters/DatabaseContentAdapter.kt&#10;build&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle&#10;Const&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/java/com/basic/storagestorm/Constants.kt&#10;color&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/res/values/colors.xml&#10;manifest&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/app/src/main/AndroidManifest.xml&#10;build.gra&#9;FILE&#9;file:///home/basic/Desktop/Dropbox/6_Semester/BAKK/storageStorm/build.gradle" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="com.developerphil.adbidea.selecteddevices" value="988a98454c3033563930" />
-    <property name="device.picker.selection" value="192.168.1.11:5555" />
+    <property name="device.picker.selection" value="988a98454c3033563930" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Dependencies" />
@@ -622,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560606966027</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="some weird gradle files - should be updated with gitignore">
+      <created>1560607445457</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1560607445457</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -632,10 +727,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1009" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19477054" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49779737" visible="true" weight="0.19477054" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" sideWeight="0.50220263" side_tool="true" weight="0.19488817" />
@@ -657,7 +751,7 @@
       <window_info anchor="right" id="Gradle" order="1" weight="0.32977587" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.32924226" />
+      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.32924226" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32977587" />
     </layout>
     <layout-to-restore>
@@ -696,7 +790,8 @@
     <MESSAGE value="implement search history" />
     <MESSAGE value="delay history update for 1s" />
     <MESSAGE value="add menu options to AboutDataObject" />
-    <option name="LAST_COMMIT_MESSAGE" value="add menu options to AboutDataObject" />
+    <MESSAGE value="some weird gradle files - should be updated with gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="some weird gradle files - should be updated with gitignore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -822,11 +917,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1932" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SettingsFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -877,14 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/api/API.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -892,32 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="41" column="38" selection-end-line="49" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/models/Field.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
@@ -1012,14 +1072,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_about_data_object.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -1028,22 +1080,68 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/Helper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="267" column="53" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+          <folding>
+            <element signature="e#32#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138" />
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/AboutDataObject.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="426">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding>
             <element signature="e#32#422#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_result.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state relative-caret-position="593">
+          <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/basic/storagestorm/SearchResultActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="61" selection-start-line="61" selection-end-line="64" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_data_object.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>
