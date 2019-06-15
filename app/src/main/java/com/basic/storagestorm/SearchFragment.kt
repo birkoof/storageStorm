@@ -2,6 +2,7 @@ package com.basic.storagestorm
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.TextInputEditText
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -66,7 +67,9 @@ class SearchFragment : Fragment(), BackpressHandler {
             val intent = Intent(activity, SearchResultActivity::class.java)
             intent.putExtra(Constants.INTENT_EXTRA_SEARCH_WORD, searchTerm)
             startActivity(intent)
-            updateHistoryList(searchTerm)
+            Handler().postDelayed({
+                updateHistoryList(searchTerm)
+            }, 1000)
         }
     }
 
@@ -74,7 +77,9 @@ class SearchFragment : Fragment(), BackpressHandler {
         val intent = Intent(activity, SearchResultActivity::class.java)
         intent.putExtra(Constants.INTENT_EXTRA_SEARCH_WORD, entry)
         startActivity(intent)
-        updateHistoryList(entry)
+        Handler().postDelayed({
+            updateHistoryList(entry)
+        }, 1000)
     }
 
     private fun updateHistoryList(entry: String) {
