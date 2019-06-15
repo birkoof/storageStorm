@@ -37,4 +37,5 @@ dependencies {
     implementation 'com.tzx.json:jsonhandleview:1.2.2'
 //    implementation files('home/basic/Desktop/api-0.1.jar')
     implementation files('libs/api-0.1.jar')
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
