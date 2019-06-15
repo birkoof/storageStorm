@@ -16,17 +16,21 @@ import java.io.IOException
 class SearchResultActivity : AppCompatActivity() {
 
     private lateinit var displayString: String
+    private lateinit var searchWord: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_result)
 
-        val searchWord = intent.getStringExtra(Constants.INTENT_EXTRA_SEARCH_WORD)
-        searchWord.let {
-            displayString = "Search results for $it"
-            tvResultFor.text = displayString
-            executeSearch(it)
-        }
+        searchWord = intent.getStringExtra(Constants.INTENT_EXTRA_SEARCH_WORD)
+        displayString = "Search results for $searchWord"
+        tvResultFor.text = displayString
+        executeSearch(searchWord)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        executeSearch(searchWord)
     }
 
     private fun executeSearch(searchWord: String) {
@@ -46,7 +50,7 @@ class SearchResultActivity : AppCompatActivity() {
             var list: MutableList<String>?
             try {
                 // TODO replace with search method
-                list = ikarusApi.getCollBySid("s-000003")?.toMutableList()
+                list = ikarusApi.getCollBySid("s-000004")?.toMutableList()
             } catch (exception: IOException) {
                 Toast.makeText(this@SearchResultActivity, "An error occurred", Toast.LENGTH_LONG).show()
                 return@doAsync
