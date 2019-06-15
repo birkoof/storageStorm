@@ -38,6 +38,7 @@ class SearchResultActivity : AppCompatActivity() {
         if (!Helper.hasNetworkConnection(this@SearchResultActivity)) {
             tvResultFor.text = "No network connection."
             btnRetry.visibility = View.VISIBLE
+            recyclerResult.visibility = View.GONE
             btnRetry.setOnClickListener {
                 executeSearch(searchWord)
             }
@@ -74,6 +75,7 @@ class SearchResultActivity : AppCompatActivity() {
                     }))
                 }
 
+                recyclerResult.visibility = View.VISIBLE
                 recyclerResult.adapter = DatabaseContentAdapter(resultData, this@SearchResultActivity)
             }
         }

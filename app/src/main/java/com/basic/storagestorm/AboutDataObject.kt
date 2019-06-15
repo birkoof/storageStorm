@@ -1,6 +1,7 @@
 package com.basic.storagestorm
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -30,20 +31,26 @@ class AboutDataObject : AppCompatActivity() {
 
     private fun executeDelete() {
         progressBar.visibility = View.VISIBLE
+        if (!Helper.hasNetworkConnection(this)) {
+            progressBar.visibility = View.GONE
+            Toast.makeText(this, "Please check you network.", Toast.LENGTH_LONG).show()
+            return
+        }
         doAsync {
             val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
             try {
                 val success = ikarusApi.delete(objectID)
                 Log.d("IKARUS", "deleting object $objectID - success: $success")
             } catch (exception: IOException) {
-                Log.d("IKARUS", "inside catch")
                 progressBar.visibility = View.GONE
                 Toast.makeText(this@AboutDataObject, "An error occurred, please retry.", Toast.LENGTH_LONG).show()
             }
             uiThread {
                 progressBar.visibility = View.GONE
                 Toast.makeText(it, "Object $objectID deleted.", Toast.LENGTH_LONG).show()
-                finish()
+                Handler().postDelayed({
+                    finish()
+                }, 1000)
             }
         }
         finish()
@@ -81,7 +88,7 @@ class AboutDataObject : AppCompatActivity() {
                 val resultData = mutableListOf<Pair<String, Any>>()
                 resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
                 resultData.add(Pair(Constants.FIELD, Field(objectJson)))
-                recyclerResult.adapter = DatabaseContentAdapter(resultData, this@AboutDataObject)
+                recyclerResult.adapter = DatabaseContentAdapter(resultData, it)
             }
         }
     }
