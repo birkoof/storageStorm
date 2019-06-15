@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tzx.json:jsonhandleview:1.2.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jsonhandleview-1.2.2.aar/3aae34cf0cf196473a7752a7b6eae66c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jsonhandleview-1.2.2.aar/3aae34cf0cf196473a7752a7b6eae66c/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tzx.json/jsonhandleview/1.2.2/3a589740ce97e87defc069443db8011a2c855fa0/jsonhandleview-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
