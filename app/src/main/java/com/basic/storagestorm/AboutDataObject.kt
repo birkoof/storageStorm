@@ -3,6 +3,8 @@ package com.basic.storagestorm
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
@@ -25,6 +27,23 @@ class AboutDataObject : AppCompatActivity() {
             ikarusSearch = IkarusSearch(this)
             ikarusSearch.execute(it)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_about_data_object, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.menuDeleteObject -> {
+            Toast.makeText(this, "TODO delete object", Toast.LENGTH_LONG).show()
+            true
+        }
+        R.id.menuEditObject -> {
+            Toast.makeText(this, "TODO edit object", Toast.LENGTH_LONG).show()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
 
