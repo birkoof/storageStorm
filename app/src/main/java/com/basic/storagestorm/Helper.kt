@@ -3,6 +3,9 @@ package com.basic.storagestorm
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 class Helper {
     companion object {
@@ -266,6 +269,19 @@ class Helper {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
             return activeNetwork?.isConnected == true
+        }
+
+        fun isValidJSON(json: String): Boolean {
+            try {
+                JSONObject(json)
+            } catch (exception: JSONException) {
+                try {
+                    JSONArray(json)
+                } catch (exception: JSONException) {
+                    return false
+                }
+            }
+            return true
         }
     }
 }

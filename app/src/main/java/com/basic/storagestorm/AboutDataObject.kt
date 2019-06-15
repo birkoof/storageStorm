@@ -1,5 +1,6 @@
 package com.basic.storagestorm
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AlertDialog
@@ -20,6 +21,7 @@ import java.io.IOException
 class AboutDataObject : AppCompatActivity() {
 
     private lateinit var objectID: String
+    private lateinit var objectJSON: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +31,16 @@ class AboutDataObject : AppCompatActivity() {
         executeGet(objectID)
     }
 
+    override fun onResume() {
+        super.onResume()
+        executeGet(objectID)
+    }
+
     private fun executeDelete() {
         progressBar.visibility = View.VISIBLE
         if (!Helper.hasNetworkConnection(this)) {
             progressBar.visibility = View.GONE
-            Toast.makeText(this, "Please check you network.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please check your network.", Toast.LENGTH_LONG).show()
             return
         }
         doAsync {
@@ -43,7 +50,7 @@ class AboutDataObject : AppCompatActivity() {
                 Log.d("IKARUS", "deleting object $objectID - success: $success")
             } catch (exception: IOException) {
                 progressBar.visibility = View.GONE
-                Toast.makeText(this@AboutDataObject, "An error occurred, please retry.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AboutDataObject, "An error occurred, please try again.", Toast.LENGTH_LONG).show()
             }
             uiThread {
                 progressBar.visibility = View.GONE
@@ -70,16 +77,15 @@ class AboutDataObject : AppCompatActivity() {
         btnRetry.visibility = View.GONE
         doAsync {
             val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
-            val objectJson: String?
             try {
-                objectJson = ikarusApi.get(objectID)
+                objectJSON = ikarusApi.get(objectID)
             } catch (exception: IOException) {
                 Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
                 return@doAsync
             }
             uiThread {
                 progressBar.visibility = View.GONE
-                if (objectJson.isNullOrEmpty()) {
+                if (objectJSON.isEmpty()) {
                     tvObjectID.text = "No results for $objectID."
                     return@uiThread
                 }
@@ -87,7 +93,7 @@ class AboutDataObject : AppCompatActivity() {
                 tvObjectID.text = "Object ID: $objectID"
                 val resultData = mutableListOf<Pair<String, Any>>()
                 resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
-                resultData.add(Pair(Constants.FIELD, Field(objectJson)))
+                resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
                 recyclerResult.adapter = DatabaseContentAdapter(resultData, it)
             }
         }
@@ -112,7 +118,10 @@ class AboutDataObject : AppCompatActivity() {
             true
         }
         R.id.menuEditObject -> {
-            Toast.makeText(this, "TODO edit object", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, EditObject::class.java)
+            intent.putExtra(Constants.INTENT_EXTRA_OBJECT_JSON, objectJSON)
+            intent.putExtra(Constants.INTENT_EXTRA_OBJECT_ID, objectID)
+            startActivity(intent)
             true
         }
         else -> super.onOptionsItemSelected(item)
