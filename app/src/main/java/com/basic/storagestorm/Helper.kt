@@ -265,8 +265,8 @@ class Helper {
             return java.util.UUID.randomUUID().toString()
         }
 
-        fun hasNetworkConnection(context: Context): Boolean {
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        fun hasNetworkConnection(context: Context?): Boolean {
+            val connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
             return activeNetwork?.isConnected == true
         }
