@@ -3,10 +3,10 @@ package com.basic.storagestorm
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : FragmentActivity(), BackpressHandler {
+class MainActivity : AppCompatActivity(), BackpressHandler {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_database -> {
@@ -20,14 +20,14 @@ class MainActivity : FragmentActivity(), BackpressHandler {
 
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_settings -> {
+            R.id.navigation_create -> {
                 supportFragmentManager
                     .beginTransaction()
                     .hide(active)
-                    .show(settingsFragment)
+                    .show(createFragment)
                     .commit()
 
-                active = settingsFragment
+                active = createFragment
 
                 return@OnNavigationItemSelectedListener true
             }
@@ -48,7 +48,7 @@ class MainActivity : FragmentActivity(), BackpressHandler {
 
     private val databaseFragment = DatabaseFragment.newInstance()
     private val searchFragment = SearchFragment.newInstance()
-    private val settingsFragment = SettingsFragment.newInstance()
+    private val createFragment = CreateFragment.newInstance()
     var active: Fragment = databaseFragment
 
 
@@ -62,8 +62,8 @@ class MainActivity : FragmentActivity(), BackpressHandler {
             .hide(searchFragment)
             .commit()
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, settingsFragment, "databaseFragment")
-            .hide(settingsFragment)
+            .add(R.id.fragmentContainer, createFragment, "databaseFragment")
+            .hide(createFragment)
             .commit()
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, databaseFragment, "databaseFragment")
@@ -72,10 +72,6 @@ class MainActivity : FragmentActivity(), BackpressHandler {
         active = databaseFragment
         navigation.selectedItemId = R.id.navigation_database
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-    }
-
-    override fun onAttachFragment(fragment: Fragment?) {
-        super.onAttachFragment(fragment)
     }
 
     override fun onBackPressed() {

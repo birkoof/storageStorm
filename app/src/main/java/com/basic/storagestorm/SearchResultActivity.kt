@@ -51,7 +51,7 @@ class SearchResultActivity : AppCompatActivity() {
             var list: MutableList<String>?
             try {
                 // TODO replace with search method
-                list = ikarusApi.getCollBySid("s-000004")?.toMutableList()
+                list = ikarusApi.getCollBySid("s-000003")?.toMutableList()
             } catch (exception: IOException) {
                 Toast.makeText(this@SearchResultActivity, "An error occurred", Toast.LENGTH_LONG).show()
                 return@doAsync

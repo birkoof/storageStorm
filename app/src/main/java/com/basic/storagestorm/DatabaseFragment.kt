@@ -61,6 +61,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         if (!Helper.hasNetworkConnection(activity?.applicationContext)) {
             progressBar.visibility = View.GONE
             tvNoConnection.visibility = View.VISIBLE
+            tvNoConnection.text = "No network connection."
             btnRetry.visibility = View.VISIBLE
             btnRetry.setOnClickListener {
                 getAllCollections()
@@ -72,17 +73,31 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         }
 
         doAsync {
-            val list: MutableList<String>?
+            var list: MutableList<String>?
             val ikarus = IkarusApi(Constants.UTILITIES_SERVER_URL)
+            var error = false
             try {
                 // TODO replace with getAll
-                list = ikarus.getCollBySid("s-000004").toMutableList()
+                list = ikarus.getCollBySid("s-000003").toMutableList()
             } catch (exception: IOException) {
-                Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
-                return@doAsync
+                list = mutableListOf()
+                error = true
+            } catch (exception: IllegalStateException) {
+                list = mutableListOf()
+                error = true
             }
             uiThread {
                 progressBar.visibility = View.GONE
+                if (error) {
+                    Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
+                    tvNoConnection.visibility = View.VISIBLE
+                    tvNoConnection.text = "An error occurred."
+                    btnRetry.visibility = View.VISIBLE
+                    btnRetry.setOnClickListener {
+                        getAllCollections()
+                    }
+                    return@uiThread
+                }
                 val resultData = mutableListOf<Pair<String, Any>>()
                 // TODO change this
                 resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))

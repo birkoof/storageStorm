@@ -12,8 +12,8 @@
             android:title="Database"/>
 
     <item
-            android:id="@+id/navigation_settings"
-            android:icon="@drawable/settings"
-            android:title="Settings"/>
+        android:id="@+id/navigation_create"
+        android:icon="@drawable/icon_add_circle"
+        android:title="Create" />
 
 </menu>
