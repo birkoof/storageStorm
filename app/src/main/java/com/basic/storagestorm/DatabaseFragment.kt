@@ -29,6 +29,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvNoConnection: TextView
     private lateinit var btnRetry: Button
+    private lateinit var lastUsed: Pair<String, String>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -45,6 +46,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         recyclerContent = view.findViewById(R.id.recyclerContent)
         recyclerPath = view.findViewById(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
+        lastUsed = Pair(Constants.HOME, Constants.HOME)
         return view
     }
 
@@ -96,6 +98,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                 }
                 recyclerContent.visibility = View.VISIBLE
                 recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+                lastUsed = Pair(Constants.HOME, Constants.HOME)
             }
         }
     }
@@ -135,7 +138,17 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                 resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
                 recyclerContent.visibility = View.VISIBLE
                 recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+                lastUsed = Pair(Constants.DATA_OBJECT, objectID)
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        when (lastUsed.first) {
+            Constants.HOME -> getAllCollections()
+            Constants.DATA_OBJECT -> getObjectData(lastUsed.second)
+            // TODO collection
         }
     }
 
