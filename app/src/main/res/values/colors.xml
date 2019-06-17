@@ -17,4 +17,5 @@
     <color name="material_A200">#ff8085</color>
     <color name="material_A400">#ff4d53</color>
     <color name="material_A700">#ff343b</color>
+    <color name="icons_remove_delete">#818080</color>
 </resources>

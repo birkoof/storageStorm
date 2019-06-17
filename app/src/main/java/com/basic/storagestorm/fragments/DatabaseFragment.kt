@@ -1,5 +1,9 @@
 package com.basic.storagestorm.fragments
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -34,6 +38,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
     private lateinit var tvNoConnection: TextView
     private lateinit var btnRetry: Button
     private lateinit var lastUsed: Pair<String, String>
+    private lateinit var refreshContentReceiver: RefreshContentReceiver
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -70,9 +75,20 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         return view
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        refreshContentReceiver = RefreshContentReceiver()
+        activity?.registerReceiver(refreshContentReceiver, IntentFilter(Constants.REFRESH_DATA))
+    }
+
     override fun onStart() {
         super.onStart()
         getAllCollections()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activity?.unregisterReceiver(refreshContentReceiver)
     }
 
     private fun getAllCollections() {
@@ -203,11 +219,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     override fun onResume() {
         super.onResume()
-        when (lastUsed.first) {
-            Constants.HOME -> getAllCollections()
-            Constants.DATA_OBJECT -> getObjectData(lastUsed.second)
-            // TODO collection
-        }
+        updateView()
     }
 
     /**
@@ -272,4 +284,17 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         return true
     }
 
+    private fun updateView() {
+        when (lastUsed.first) {
+            Constants.HOME -> getAllCollections()
+            Constants.DATA_OBJECT -> getObjectData(lastUsed.second)
+            // TODO collection
+        }
+    }
+
+    inner class RefreshContentReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            updateView()
+        }
+    }
 }

@@ -16,6 +16,9 @@ class Constants {
         val INTENT_EXTRA_OBJECT_ID = "intent_extra_object_id"
         val INTENT_EXTRA_OBJECT_JSON = "intent_extra_object_json"
 
+        // broadcast
+        val REFRESH_DATA = "refresh_data"
+
         // preferences tag
         val SHARED_PREFERENCES = "storage_storm_preference"
     }

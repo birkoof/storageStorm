@@ -22,8 +22,29 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp"/>
 
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/icon_edit"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:tint="@color/icons_remove_delete" />
 
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/ivEdit"
+            android:src="@drawable/icon_delete"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:tint="@color/icons_remove_delete" />
+
+    </RelativeLayout>
 
     <View android:id="@+id/shadeDivider"
           android:layout_width="match_parent"

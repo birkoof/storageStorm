@@ -1,6 +1,9 @@
 package com.basic.storagestorm.activities
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -20,6 +23,7 @@ class SearchResultActivity : AppCompatActivity() {
 
     private lateinit var displayString: String
     private lateinit var searchWord: String
+    private lateinit var refreshContentReceiver: RefreshContentReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,14 @@ class SearchResultActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        refreshContentReceiver = RefreshContentReceiver()
+        registerReceiver(refreshContentReceiver, IntentFilter(Constants.REFRESH_DATA))
         executeSearch(searchWord)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(refreshContentReceiver)
     }
 
     private fun executeSearch(searchWord: String) {
@@ -88,4 +99,11 @@ class SearchResultActivity : AppCompatActivity() {
             }
         }
     }
+
+    inner class RefreshContentReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            executeSearch(searchWord)
+        }
+    }
+
 }
