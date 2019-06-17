@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.basic.storagestorm.R
+import com.basic.storagestorm.activities.MainActivity
+import com.basic.storagestorm.activities.SearchResultActivity
 import com.basic.storagestorm.adapters.SearchHistoryAdapter
+import com.basic.storagestorm.interfaces.BackpressHandler
 import com.basic.storagestorm.models.HistoryEntry
+import com.basic.storagestorm.utilities.Constants
+import com.basic.storagestorm.utilities.DatabaseHandler
 
 
 class SearchFragment : Fragment(), BackpressHandler {
@@ -48,7 +54,8 @@ class SearchFragment : Fragment(), BackpressHandler {
                 tvHistory.visibility = View.VISIBLE
                 tvClearHistory.visibility = View.VISIBLE
                 tvClearHistory.setOnClickListener {
-                    val database = DatabaseHandler((activity as MainActivity).applicationContext)
+                    val database =
+                        DatabaseHandler((activity as MainActivity).applicationContext)
                     database.clearHistory()
                     onResume()
                 }

@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.utilities
 
 import android.content.Context
 import android.net.ConnectivityManager

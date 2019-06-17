@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.interfaces
 
 interface BackpressHandler {
     fun onBackButtonPressed(): Boolean

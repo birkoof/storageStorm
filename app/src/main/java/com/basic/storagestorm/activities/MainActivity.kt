@@ -1,9 +1,14 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import com.basic.storagestorm.R
+import com.basic.storagestorm.fragments.CreateFragment
+import com.basic.storagestorm.fragments.DatabaseFragment
+import com.basic.storagestorm.fragments.SearchFragment
+import com.basic.storagestorm.interfaces.BackpressHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BackpressHandler {

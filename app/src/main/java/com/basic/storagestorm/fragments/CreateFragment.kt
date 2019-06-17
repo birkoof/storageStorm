@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.fragments
 
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
@@ -9,6 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import at.tugraz.ikarus.api.IkarusApi
+import com.basic.storagestorm.R
+import com.basic.storagestorm.activities.MainActivity
+import com.basic.storagestorm.interfaces.BackpressHandler
+import com.basic.storagestorm.utilities.Constants
+import com.basic.storagestorm.utilities.Helper
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException

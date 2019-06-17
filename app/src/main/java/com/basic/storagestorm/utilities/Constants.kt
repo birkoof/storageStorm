@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.utilities
 
 class Constants {
     companion object {

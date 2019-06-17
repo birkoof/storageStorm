@@ -1,0 +1,9 @@
+# /
+/.gradle
+/.idea/*
+/app/build
+/app/src/androidTest
+/app/src/test
+/build
+/gradle
+/Storagestorm

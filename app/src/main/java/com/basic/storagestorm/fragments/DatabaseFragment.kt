@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,11 +11,15 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
+import com.basic.storagestorm.R
 import com.basic.storagestorm.adapters.DatabaseContentAdapter
 import com.basic.storagestorm.adapters.DatabasePathAdapter
+import com.basic.storagestorm.interfaces.BackpressHandler
 import com.basic.storagestorm.models.DataObject
 import com.basic.storagestorm.models.Field
 import com.basic.storagestorm.models.Path
+import com.basic.storagestorm.utilities.Constants
+import com.basic.storagestorm.utilities.Helper
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
@@ -35,9 +39,22 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_database, container, false)
 
-        pathList.add(Path(Constants.HOME, Constants.HOME, Constants.HOME) {
-            updateContent(Constants.HOME, Constants.HOME, Constants.HOME)
-            removeAllPathsAfter(Path(Constants.HOME, Constants.HOME, Constants.HOME) {})
+        pathList.add(
+            Path(
+                Constants.HOME,
+                Constants.HOME,
+                Constants.HOME
+            ) {
+                updateContent(
+                    Constants.HOME,
+                    Constants.HOME,
+                    Constants.HOME
+                )
+                removeAllPathsAfter(Path(
+                    Constants.HOME,
+                    Constants.HOME,
+                    Constants.HOME
+                ) {})
         })
 
         tvNoConnection = view.findViewById(R.id.tvNoConnection)
@@ -46,7 +63,10 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         recyclerContent = view.findViewById(R.id.recyclerContent)
         recyclerPath = view.findViewById(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
-        lastUsed = Pair(Constants.HOME, Constants.HOME)
+        lastUsed = Pair(
+            Constants.HOME,
+            Constants.HOME
+        )
         return view
     }
 
@@ -73,22 +93,42 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         }
 
         doAsync {
-            var list: MutableList<String>?
-            val ikarus = IkarusApi(Constants.UTILITIES_SERVER_URL)
-            var error = false
             try {
                 // TODO replace with getAll
-                list = ikarus.getCollBySid("s-000003").toMutableList()
+                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000003").toMutableList()
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    val resultData = mutableListOf<Pair<String, Any>>()
+                    // TODO change this
+                    resultData.add(
+                        Pair(
+                            Constants.CATEGORY,
+                            Constants.DATA_OBJECT
+                        )
+                    )
+                    if (list.isNullOrEmpty()) {
+                        Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+                        return@uiThread
+                    }
+                    list.forEach {
+                        // TODO add first all collection and then all objects - waiting for API update
+                        resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
+                            this@DatabaseFragment.updateContent(
+                                null, it,
+                                Constants.DATA_OBJECT
+                            )
+                        }))
+                    }
+                    recyclerContent.visibility = View.VISIBLE
+                    recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+                    lastUsed = Pair(
+                        Constants.HOME,
+                        Constants.HOME
+                    )
+                }
             } catch (exception: IOException) {
-                list = mutableListOf()
-                error = true
-            } catch (exception: IllegalStateException) {
-                list = mutableListOf()
-                error = true
-            }
-            uiThread {
-                progressBar.visibility = View.GONE
-                if (error) {
+                uiThread {
+                    progressBar.visibility = View.GONE
                     Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
                     tvNoConnection.visibility = View.VISIBLE
                     tvNoConnection.text = "An error occurred."
@@ -98,22 +138,18 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                     }
                     return@uiThread
                 }
-                val resultData = mutableListOf<Pair<String, Any>>()
-                // TODO change this
-                resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
-                if (list.isNullOrEmpty()) {
-                    Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+            } catch (exception: IllegalStateException) {
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
+                    tvNoConnection.visibility = View.VISIBLE
+                    tvNoConnection.text = "An error occurred."
+                    btnRetry.visibility = View.VISIBLE
+                    btnRetry.setOnClickListener {
+                        getAllCollections()
+                    }
                     return@uiThread
                 }
-                list.forEach {
-                    // TODO add first all collection and then all objects - waiting for API update
-                    resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
-                        this@DatabaseFragment.updateContent(null, it, Constants.DATA_OBJECT)
-                    }))
-                }
-                recyclerContent.visibility = View.VISIBLE
-                recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
-                lastUsed = Pair(Constants.HOME, Constants.HOME)
             }
         }
     }
@@ -138,22 +174,29 @@ class DatabaseFragment : Fragment(), BackpressHandler {
             val ikarus = IkarusApi(Constants.UTILITIES_SERVER_URL)
             try {
                 objectJSON = ikarus.get(objectID)
-            } catch (exception: IOException) {
-                Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
-                return@doAsync
-            }
-            uiThread {
-                progressBar.visibility = View.GONE
-                if (objectJSON.isNullOrEmpty()) {
-                    Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
-                    return@uiThread
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    if (objectJSON.isNullOrEmpty()) {
+                        Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+                        return@uiThread
+                    }
+                    val resultData = mutableListOf<Pair<String, Any>>()
+                    resultData.add(
+                        Pair(
+                            Constants.CATEGORY,
+                            Constants.FIELD
+                        )
+                    )
+                    resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
+                    recyclerContent.visibility = View.VISIBLE
+                    recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+                    lastUsed = Pair(Constants.DATA_OBJECT, objectID)
                 }
-                val resultData = mutableListOf<Pair<String, Any>>()
-                resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
-                resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
-                recyclerContent.visibility = View.VISIBLE
-                recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
-                lastUsed = Pair(Constants.DATA_OBJECT, objectID)
+            } catch (exception: IOException) {
+                progressBar.visibility = View.GONE
+                uiThread {
+                    Toast.makeText(activity, "An error occurred", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

@@ -1,10 +1,13 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
+import com.basic.storagestorm.R
+import com.basic.storagestorm.utilities.Constants
+import com.basic.storagestorm.utilities.Helper
 import kotlinx.android.synthetic.main.activity_edit_object.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -52,14 +55,16 @@ class EditObject : AppCompatActivity() {
             try {
                 // TODO update API
 //                ikarus.update(objectID, editedJson)
+                uiThread {
+                    progressBar.visibility = View.VISIBLE
+                    Toast.makeText(it, "Object updated.", Toast.LENGTH_LONG).show()
+                    finish()
+                }
             } catch (exception: IOException) {
-                Toast.makeText(this@EditObject, "Something went wrong.", Toast.LENGTH_LONG).show()
-                return@doAsync
-            }
-            uiThread {
-                progressBar.visibility = View.VISIBLE
-                Toast.makeText(it, "Object updated.", Toast.LENGTH_LONG).show()
-                finish()
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this@EditObject, "Something went wrong.", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.basic.storagestorm.Constants
 import com.basic.storagestorm.R
 import com.basic.storagestorm.models.Collection
 import com.basic.storagestorm.models.DataObject
 import com.basic.storagestorm.models.Field
+import com.basic.storagestorm.utilities.Constants
 import com.dandan.jsonhandleview.library.JsonViewLayout
 
 /*

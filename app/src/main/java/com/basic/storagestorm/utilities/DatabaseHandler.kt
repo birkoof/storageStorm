@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.utilities
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,7 +6,11 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.basic.storagestorm.models.HistoryEntry
 
-class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DatabaseHandler(context: Context) : SQLiteOpenHelper(
+    context,
+    DATABASE_NAME, null,
+    DATABASE_VERSION
+) {
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery = "CREATE TABLE $TABLE_HISTORY ($COL_ENTRY VARCHAR, $COL_DATE INTEGER)"
         db!!.execSQL(createTableQuery)

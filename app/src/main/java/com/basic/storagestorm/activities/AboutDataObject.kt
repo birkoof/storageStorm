@@ -1,4 +1,4 @@
-package com.basic.storagestorm
+package com.basic.storagestorm.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
+import com.basic.storagestorm.R
 import com.basic.storagestorm.adapters.DatabaseContentAdapter
 import com.basic.storagestorm.models.Field
+import com.basic.storagestorm.utilities.Constants
+import com.basic.storagestorm.utilities.Helper
 import kotlinx.android.synthetic.main.activity_about_data_object.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -48,16 +51,19 @@ class AboutDataObject : AppCompatActivity() {
             try {
                 val success = ikarusApi.delete(objectID)
                 Log.d("IKARUS", "deleting object $objectID - success: $success")
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(it, "Object $objectID deleted.", Toast.LENGTH_LONG).show()
+                    Handler().postDelayed({
+                        finish()
+                    }, 1000)
+                }
             } catch (exception: IOException) {
-                progressBar.visibility = View.GONE
-                Toast.makeText(this@AboutDataObject, "An error occurred, please try again.", Toast.LENGTH_LONG).show()
-            }
-            uiThread {
-                progressBar.visibility = View.GONE
-                Toast.makeText(it, "Object $objectID deleted.", Toast.LENGTH_LONG).show()
-                Handler().postDelayed({
-                    finish()
-                }, 1000)
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(it, "An error occurred, please try again.", Toast.LENGTH_LONG).show()
+                    return@uiThread
+                }
             }
         }
         finish()
@@ -79,22 +85,29 @@ class AboutDataObject : AppCompatActivity() {
             val ikarusApi = IkarusApi(Constants.UTILITIES_SERVER_URL)
             try {
                 objectJSON = ikarusApi.get(objectID)
+                uiThread {
+                    progressBar.visibility = View.GONE
+                    if (objectJSON.isEmpty()) {
+                        tvObjectID.text = "No results for $objectID."
+                        return@uiThread
+                    }
+
+                    tvObjectID.text = "Object ID: $objectID"
+                    val resultData = mutableListOf<Pair<String, Any>>()
+                    resultData.add(
+                        Pair(
+                            Constants.CATEGORY,
+                            Constants.FIELD
+                        )
+                    )
+                    resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
+                    recyclerResult.adapter = DatabaseContentAdapter(resultData, it)
+                }
             } catch (exception: IOException) {
-                Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
-                return@doAsync
-            }
-            uiThread {
-                progressBar.visibility = View.GONE
-                if (objectJSON.isEmpty()) {
-                    tvObjectID.text = "No results for $objectID."
+                uiThread {
+                    Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
                     return@uiThread
                 }
-
-                tvObjectID.text = "Object ID: $objectID"
-                val resultData = mutableListOf<Pair<String, Any>>()
-                resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
-                resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
-                recyclerResult.adapter = DatabaseContentAdapter(resultData, it)
             }
         }
     }
@@ -109,7 +122,7 @@ class AboutDataObject : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Delete object")
             builder.setMessage("Are you sure you want to delete object $objectID?")
-            builder.setPositiveButton("Yes") { dialog, which ->
+            builder.setPositiveButton("Yes") { _, _ ->
                 executeDelete()
             }
             builder.setNegativeButton("No") { _, _ -> }
