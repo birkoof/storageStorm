@@ -18,4 +18,6 @@
     <color name="material_A400">#ff4d53</color>
     <color name="material_A700">#ff343b</color>
     <color name="icons_remove_delete">#818080</color>
+    <color name="transparent">#00000000</color>
+    <color name="popup_window_background_color">#30000000</color>
 </resources>

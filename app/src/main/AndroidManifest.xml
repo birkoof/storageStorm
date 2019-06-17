@@ -13,8 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.EditObject"></activity>
-        <activity android:name=".activities.AboutDataObject"></activity>
+        <activity
+            android:name=".dialogs.EditObjectDialog"
+            android:theme="@style/CustomPopup" />
+        <activity
+            android:name=".dialogs.DeleteObjectDialog"
+            android:theme="@style/CustomPopup" />
+        <activity
+            android:name=".dialogs.RemoveObjectFromCollectionDialog"
+            android:theme="@style/CustomPopup" />
+        <activity
+            android:name=".dialogs.AddObjectToCollectionDialog"
+            android:theme="@style/CustomPopup" />
+        <activity
+            android:name=".dialogs.BaseDialogActivity"
+            android:theme="@style/CustomPopup" />
+        <activity android:name=".activities.EditObject" />
+        <activity android:name=".activities.AboutDataObject" />
         <activity android:name=".activities.SearchResultActivity" />
         <activity
             android:name=".activities.MainActivity"

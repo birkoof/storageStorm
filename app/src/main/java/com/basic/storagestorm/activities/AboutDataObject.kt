@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.R
@@ -25,11 +26,13 @@ class AboutDataObject : AppCompatActivity() {
 
     private lateinit var objectID: String
     private lateinit var objectJSON: String
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_data_object)
 
+        progressBar = findViewById(R.id.progressBar)
         objectID = intent.getStringExtra(Constants.INTENT_EXTRA_OBJECT_ID)
         executeGet(objectID)
     }

@@ -3,6 +3,7 @@ package com.basic.storagestorm.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.R
@@ -17,10 +18,13 @@ class EditObject : AppCompatActivity() {
 
     private lateinit var jsonString: String
     private lateinit var objectID: String
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_object)
+
+        progressBar = findViewById(R.id.progressBar)
 
         jsonString = intent.getStringExtra(Constants.INTENT_EXTRA_OBJECT_JSON)
         editText.setText(jsonString)

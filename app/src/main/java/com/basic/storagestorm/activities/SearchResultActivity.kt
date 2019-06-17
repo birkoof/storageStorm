@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.R
@@ -24,11 +25,13 @@ class SearchResultActivity : AppCompatActivity() {
     private lateinit var displayString: String
     private lateinit var searchWord: String
     private lateinit var refreshContentReceiver: RefreshContentReceiver
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_result)
 
+        progressBar = findViewById(R.id.progressBar)
         searchWord = intent.getStringExtra(Constants.INTENT_EXTRA_SEARCH_WORD)
         displayString = "Search results for $searchWord"
         tvResultFor.text = displayString
