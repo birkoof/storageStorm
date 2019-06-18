@@ -15,19 +15,19 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".dialogs.EditObjectDialog"
-            android:theme="@style/CustomPopup" />
+            android:theme="@style/AppTheme.CustomPopup" />
         <activity
             android:name=".dialogs.DeleteObjectDialog"
-            android:theme="@style/CustomPopup" />
+            android:theme="@style/AppTheme.CustomPopup" />
         <activity
             android:name=".dialogs.RemoveObjectFromCollectionDialog"
-            android:theme="@style/CustomPopup" />
+            android:theme="@style/AppTheme.CustomPopup" />
         <activity
             android:name=".dialogs.AddObjectToCollectionDialog"
-            android:theme="@style/CustomPopup" />
+            android:theme="@style/AppTheme.CustomPopup" />
         <activity
             android:name=".dialogs.BaseDialogActivity"
-            android:theme="@style/CustomPopup" />
+            android:theme="@style/AppTheme.CustomPopup" />
         <activity android:name=".activities.EditObject" />
         <activity android:name=".activities.AboutDataObject" />
         <activity android:name=".activities.SearchResultActivity" />
