@@ -28,6 +28,10 @@ class AddObjectToCollectionDialog : BaseDialogActivity() {
     }
 
     private fun executeInsert(collID: String, objID: String) {
+        if (objID.contains("s-")) {
+            Toast.makeText(this, "Please enter valid Object ID.", Toast.LENGTH_SHORT).show()
+            return
+        }
         doAsync {
             try {
                 val success = IkarusApi(Constants.UTILITIES_SERVER_URL).insertColl(collID, objID)

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import com.basic.storagestorm.R
 import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
@@ -68,7 +67,7 @@ class CreateFragment : Fragment(), BackpressHandler {
 
         btnAddCollToColl = view.findViewById(R.id.btnAddCollToColl)
         btnAddCollToColl.setOnClickListener {
-            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(activity, AddCollectionToCollectionDialog::class.java))
         }
 
         btnGetCollection = view.findViewById(R.id.btnGetCollection)
