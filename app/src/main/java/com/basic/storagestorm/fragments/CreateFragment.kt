@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ProgressBar
+import android.widget.Toast
 import com.basic.storagestorm.R
 import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
@@ -19,12 +19,16 @@ import com.basic.storagestorm.interfaces.BackpressHandler
 
 class CreateFragment : Fragment(), BackpressHandler {
 
-    private lateinit var progressBar: ProgressBar
     private lateinit var btnCreateObject: Button
     private lateinit var btnDeleteObject: Button
     private lateinit var btnEditObject: Button
     private lateinit var btnAddObjectToColl: Button
     private lateinit var btnRemoveObjectFromColl: Button
+
+    private lateinit var btnCreateCollection: Button
+    private lateinit var btnDeleteCollection: Button
+    private lateinit var btnAddCollToColl: Button
+    private lateinit var btnGetCollection: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -53,6 +57,26 @@ class CreateFragment : Fragment(), BackpressHandler {
         btnRemoveObjectFromColl = view.findViewById(R.id.btnRemoveObjectFromColl)
         btnRemoveObjectFromColl.setOnClickListener {
             startActivity(Intent(activity, RemoveObjectFromCollectionDialog::class.java))
+        }
+
+        btnCreateCollection = view.findViewById(R.id.btnCreateCollection)
+        btnCreateCollection.setOnClickListener {
+            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+        }
+
+        btnDeleteCollection = view.findViewById(R.id.btnDeleteCollection)
+        btnDeleteCollection.setOnClickListener {
+            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+        }
+
+        btnAddCollToColl = view.findViewById(R.id.btnAddCollToColl)
+        btnAddCollToColl.setOnClickListener {
+            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+        }
+
+        btnGetCollection = view.findViewById(R.id.btnGetCollection)
+        btnGetCollection.setOnClickListener {
+            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
         }
 
         return view
