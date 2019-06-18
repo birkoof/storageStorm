@@ -14,6 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".dialogs.DeleteCollectionDialog"
+            android:theme="@style/AppTheme.CustomPopup" />
+        <activity
             android:name=".dialogs.CreateCollectionDialog"
             android:theme="@style/AppTheme.CustomPopup" />
         <activity android:name=".activities.CreateObject" />

@@ -10,12 +10,12 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.IOException
 
-class DeleteObjectDialog : BaseDialogActivity() {
+class DeleteCollectionDialog : BaseDialogActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tvTitle.text = "Delete an Object"
-        tvFirstText.text = "Object ID"
+        tvFirstText.text = "Collection ID"
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
         tvSave.text = "DELETE"
@@ -27,16 +27,16 @@ class DeleteObjectDialog : BaseDialogActivity() {
         }
     }
 
-    private fun executeDelete(objectID: String) {
+    private fun executeDelete(collID: String) {
         doAsync {
             try {
-                val success = IkarusApi(Constants.UTILITIES_SERVER_URL).delete(objectID)
+                val success = IkarusApi(Constants.UTILITIES_SERVER_URL).deleteCollBySid(collID)
                 uiThread {
                     if (success) {
-                        Toast.makeText(it, "$objectID deleted!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(it, "$collID deleted!", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(it, "Please enter valid Object ID", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(it, "Please enter valid Collection ID", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (exception: IOException) {
@@ -45,11 +45,11 @@ class DeleteObjectDialog : BaseDialogActivity() {
                 }
             } catch (exception: IllegalStateException) {
                 uiThread {
-                    Toast.makeText(it, "Please enter valid Object ID", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it, "Please enter valid Collection ID", Toast.LENGTH_SHORT).show()
                 }
             } catch (exception: NullPointerException) {
                 uiThread {
-                    Toast.makeText(it, "Please enter valid Object ID", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it, "Please enter valid Collection ID", Toast.LENGTH_SHORT).show()
                 }
             }
         }
