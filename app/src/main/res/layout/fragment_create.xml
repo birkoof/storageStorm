@@ -6,8 +6,6 @@
                 android:layout_height="match_parent"
     tools:context=".fragments.CreateFragment">
 
-    <include layout="@layout/progressbar" />
-
     <TextView
         android:id="@+id/tvManage"
         android:layout_width="wrap_content"

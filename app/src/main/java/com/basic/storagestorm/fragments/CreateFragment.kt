@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import com.basic.storagestorm.R
+import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
 import com.basic.storagestorm.dialogs.AddObjectToCollectionDialog
 import com.basic.storagestorm.dialogs.DeleteObjectDialog
@@ -29,8 +30,6 @@ class CreateFragment : Fragment(), BackpressHandler {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create, container, false)
 
-        progressBar = view.findViewById(R.id.progressBar)
-
         btnEditObject = view.findViewById(R.id.btnEditObject)
         btnEditObject.setOnClickListener {
             startActivity(Intent(activity, EditObjectDialog::class.java))
@@ -38,9 +37,8 @@ class CreateFragment : Fragment(), BackpressHandler {
 
         btnCreateObject = view.findViewById(R.id.btnCreateObject)
         btnCreateObject.setOnClickListener {
-            // TODO
+            startActivity(Intent(activity, CreateObject::class.java))
         }
-
 
         btnDeleteObject = view.findViewById(R.id.btnDeleteObject)
         btnDeleteObject.setOnClickListener {
