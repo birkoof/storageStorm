@@ -73,7 +73,7 @@ class CreateFragment : Fragment(), BackpressHandler {
 
         btnGetCollection = view.findViewById(R.id.btnGetCollection)
         btnGetCollection.setOnClickListener {
-            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(activity, GetCollectionDialog::class.java))
         }
 
         return view

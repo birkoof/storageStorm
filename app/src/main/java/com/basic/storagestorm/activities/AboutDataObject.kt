@@ -108,6 +108,13 @@ class AboutDataObject : AppCompatActivity() {
                 }
             } catch (exception: IOException) {
                 uiThread {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
+                    return@uiThread
+                }
+            } catch (exception: IllegalStateException) {
+                uiThread {
+                    progressBar.visibility = View.GONE
                     Toast.makeText(this@AboutDataObject, "An error occurred", Toast.LENGTH_LONG).show()
                     return@uiThread
                 }

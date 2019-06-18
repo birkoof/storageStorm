@@ -19,6 +19,7 @@ import com.basic.storagestorm.R
 import com.basic.storagestorm.adapters.DatabaseContentAdapter
 import com.basic.storagestorm.adapters.DatabasePathAdapter
 import com.basic.storagestorm.interfaces.BackpressHandler
+import com.basic.storagestorm.models.Collection
 import com.basic.storagestorm.models.DataObject
 import com.basic.storagestorm.models.Field
 import com.basic.storagestorm.models.Path
@@ -37,7 +38,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvNoConnection: TextView
     private lateinit var btnRetry: Button
-    private lateinit var lastUsed: Pair<String, String>
+    private lateinit var lastUsed: Pair<String, Any>
     private lateinit var refreshContentReceiver: RefreshContentReceiver
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -68,10 +69,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         recyclerContent = view.findViewById(R.id.recyclerContent)
         recyclerPath = view.findViewById(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
-        lastUsed = Pair(
-            Constants.HOME,
-            Constants.HOME
-        )
+        lastUsed = Pair(Constants.HOME, Constants.HOME)
         return view
     }
 
@@ -83,7 +81,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     override fun onStart() {
         super.onStart()
-        getAllCollections()
+        getCollection("", "TODO handle name", true)
     }
 
     override fun onDestroy() {
@@ -91,7 +89,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         activity?.unregisterReceiver(refreshContentReceiver)
     }
 
-    private fun getAllCollections() {
+    private fun getCollection(collID: String, name: String?, getAll: Boolean) {
         progressBar.visibility = View.VISIBLE
         recyclerContent.visibility = View.GONE
         if (!Helper.hasNetworkConnection(activity?.applicationContext)) {
@@ -100,7 +98,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
             tvNoConnection.text = "No network connection."
             btnRetry.visibility = View.VISIBLE
             btnRetry.setOnClickListener {
-                getAllCollections()
+                getCollection(collID, name, getAll)
             }
             return
         } else {
@@ -110,37 +108,57 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
         doAsync {
             try {
-                // TODO replace with getAll
-                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000008").toMutableList()
+                val sid = if (getAll) "s-000008" else collID // TODO REPLACE WITH A REAL GET ALL METHOD
+                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid(sid).toMutableList()
                 uiThread {
                     progressBar.visibility = View.GONE
                     val resultData = mutableListOf<Pair<String, Any>>()
-                    // TODO change this
-                    resultData.add(
-                        Pair(
-                            Constants.CATEGORY,
-                            Constants.DATA_OBJECT
-                        )
-                    )
+
                     if (list.isNullOrEmpty()) {
                         Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
                         return@uiThread
                     }
+
+                    val collectionList = mutableListOf<String>()
+                    val objectList = mutableListOf<String>()
+
                     list.forEach {
-                        // TODO add first all collection and then all objects - waiting for API update
-                        resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
-                            this@DatabaseFragment.updateContent(
-                                null, it,
-                                Constants.DATA_OBJECT
-                            )
-                        }))
+                        if (it.contains("s-")) collectionList.add(it)
+                        else objectList.add(it)
                     }
+
+                    if (collectionList.isNotEmpty()) {
+                        resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
+                        collectionList.forEach {
+                            resultData.add(Pair(Constants.COLLECTION, Collection(name, it) {
+                                this@DatabaseFragment.updateContent(
+                                    name, it,
+                                    Constants.COLLECTION
+                                )
+                            }))
+                        }
+                    }
+
+                    if (objectList.isNotEmpty()) {
+                        resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
+                        objectList.forEach {
+                            resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
+                                this@DatabaseFragment.updateContent(
+                                    null, it,
+                                    Constants.DATA_OBJECT
+                                )
+                            }))
+                        }
+                    }
+
                     recyclerContent.visibility = View.VISIBLE
                     recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
-                    lastUsed = Pair(
-                        Constants.HOME,
-                        Constants.HOME
-                    )
+
+                    lastUsed = if (getAll) {
+                        Pair(Constants.HOME, Constants.HOME)
+                    } else {
+                        Pair(Constants.COLLECTION, Collection(name, collID) {})
+                    }
                 }
             } catch (exception: IOException) {
                 uiThread {
@@ -150,7 +168,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                     tvNoConnection.text = "An error occurred."
                     btnRetry.visibility = View.VISIBLE
                     btnRetry.setOnClickListener {
-                        getAllCollections()
+                        getCollection(collID, name, getAll)
                     }
                     return@uiThread
                 }
@@ -162,7 +180,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                     tvNoConnection.text = "An error occurred."
                     btnRetry.visibility = View.VISIBLE
                     btnRetry.setOnClickListener {
-                        getAllCollections()
+                        getCollection(collID, name, getAll)
                     }
                     return@uiThread
                 }
@@ -197,12 +215,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                         return@uiThread
                     }
                     val resultData = mutableListOf<Pair<String, Any>>()
-                    resultData.add(
-                        Pair(
-                            Constants.CATEGORY,
-                            Constants.FIELD
-                        )
-                    )
+                    resultData.add(Pair(Constants.CATEGORY, Constants.FIELD))
                     resultData.add(Pair(Constants.FIELD, Field(objectJSON)))
                     recyclerContent.visibility = View.VISIBLE
                     recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
@@ -230,13 +243,10 @@ class DatabaseFragment : Fragment(), BackpressHandler {
      * @param id: the ID of the collection/object
      * @param type: one of the constants that determines the type (collection, object, home)
      * */
-    fun updateContent(title: String?, id: String, type: String) {
+    private fun updateContent(title: String?, id: String, type: String) {
         when (type) {
-            Constants.HOME -> getAllCollections()
-//            Constants.COLLECTION -> getCollectionData(id)
-            Constants.COLLECTION -> {
-                Toast.makeText(activity, "TODO COLLECTION", Toast.LENGTH_LONG).show()
-            }
+            Constants.HOME -> getCollection("", "TODO handle name", true)
+            Constants.COLLECTION -> getCollection(id, title, false)
             Constants.DATA_OBJECT -> getObjectData(id)
         }
 
@@ -286,9 +296,12 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     private fun updateView() {
         when (lastUsed.first) {
-            Constants.HOME -> getAllCollections()
-            Constants.DATA_OBJECT -> getObjectData(lastUsed.second)
-            // TODO collection
+            Constants.HOME -> getCollection("", "TODO handle name", true)
+            Constants.DATA_OBJECT -> getObjectData(lastUsed.second as String)
+            Constants.COLLECTION -> {
+                val collection = lastUsed.second as Collection
+                getCollection(collection.id, collection.name, false)
+            }
         }
     }
 
