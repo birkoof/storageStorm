@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), BackpressHandler {
 
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_create -> {
+            R.id.navigation_manage -> {
                 supportFragmentManager
                     .beginTransaction()
                     .hide(active)
