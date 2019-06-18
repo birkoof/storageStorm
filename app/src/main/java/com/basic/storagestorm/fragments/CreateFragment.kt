@@ -11,10 +11,7 @@ import android.widget.Toast
 import com.basic.storagestorm.R
 import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
-import com.basic.storagestorm.dialogs.AddObjectToCollectionDialog
-import com.basic.storagestorm.dialogs.DeleteObjectDialog
-import com.basic.storagestorm.dialogs.EditObjectDialog
-import com.basic.storagestorm.dialogs.RemoveObjectFromCollectionDialog
+import com.basic.storagestorm.dialogs.*
 import com.basic.storagestorm.interfaces.BackpressHandler
 
 class CreateFragment : Fragment(), BackpressHandler {
@@ -61,7 +58,7 @@ class CreateFragment : Fragment(), BackpressHandler {
 
         btnCreateCollection = view.findViewById(R.id.btnCreateCollection)
         btnCreateCollection.setOnClickListener {
-            Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(activity, CreateCollectionDialog::class.java))
         }
 
         btnDeleteCollection = view.findViewById(R.id.btnDeleteCollection)

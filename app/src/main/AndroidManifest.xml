@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.CreateObject"></activity>
+        <activity
+            android:name=".dialogs.CreateCollectionDialog"
+            android:theme="@style/AppTheme.CustomPopup" />
+        <activity android:name=".activities.CreateObject" />
         <activity
             android:name=".dialogs.EditObjectDialog"
             android:theme="@style/AppTheme.CustomPopup" />
