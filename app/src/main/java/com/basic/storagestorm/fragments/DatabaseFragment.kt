@@ -111,7 +111,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         doAsync {
             try {
                 // TODO replace with getAll
-                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000003").toMutableList()
+                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000008").toMutableList()
                 uiThread {
                     progressBar.visibility = View.GONE
                     val resultData = mutableListOf<Pair<String, Any>>()

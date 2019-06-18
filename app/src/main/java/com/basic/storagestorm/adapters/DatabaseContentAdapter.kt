@@ -9,10 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import at.tugraz.ikarus.api.IkarusApi
 import com.basic.storagestorm.R
 import com.basic.storagestorm.activities.EditObject
@@ -160,14 +157,18 @@ class DatabaseContentAdapter(
         }
 
         fun bindField(field: Field) {
+            val contentView = itemView.findViewById<FrameLayout>(R.id.contentView)
             val jsonView = itemView.findViewById<JsonViewLayout>(R.id.jsonView)
-            jsonView.bindJson(field.json)
-
-            // TODO add makeup
-            jsonView.setKeyColor(Color.BLACK)
-            jsonView.setValueTextColor(Color.parseColor("#b00020"))
-            jsonView.setValueNumberColor(Color.parseColor("#bc2641"))
-            jsonView.expandAll()
+            try {
+                jsonView.bindJson(field.json)
+                // TODO add makeup
+                jsonView.setKeyColor(Color.BLACK)
+                jsonView.setValueTextColor(Color.parseColor("#b00020"))
+                jsonView.setValueNumberColor(Color.parseColor("#bc2641"))
+                jsonView.expandAll()
+            } catch (exception: IllegalArgumentException) {
+                Toast.makeText(contentView.context, "JSON is not valid!", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

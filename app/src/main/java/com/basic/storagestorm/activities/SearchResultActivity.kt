@@ -66,7 +66,7 @@ class SearchResultActivity : AppCompatActivity() {
         doAsync {
             try {
                 // TODO replace with search method
-                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000003")?.toMutableList()
+                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000008")?.toMutableList()
                 uiThread {
                     progressBar.visibility = View.GONE
                     tvResultFor.text = displayString

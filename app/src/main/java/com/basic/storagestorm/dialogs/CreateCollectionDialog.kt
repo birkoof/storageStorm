@@ -15,7 +15,7 @@ class CreateCollectionDialog : BaseDialogActivity() {
         super.onCreate(savedInstanceState)
 
         tvTitle.text = "Create Collection"
-        tvFirstText.text = "Collection ID"
+        tvFirstText.text = "Collection name"
         tvSecondText.text = "Head ID"
 
         tvSave.text = "CREATE"
@@ -38,7 +38,6 @@ class CreateCollectionDialog : BaseDialogActivity() {
     private fun executeCreate(name: String, headID: String) {
         doAsync {
             try {
-                // TODO method seems not to work
                 val ret = IkarusApi(Constants.UTILITIES_SERVER_URL).makeColl(name, headID)
                 uiThread {
                     if (ret.isNullOrEmpty()) {
