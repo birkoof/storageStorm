@@ -20,7 +20,23 @@ class RemoveObjectFromCollectionDialog : BaseDialogActivity() {
 
         tvSave.text = "REMOVE"
         tvSave.setOnClickListener {
-            executeRemove(firstInput.text.toString(), secondInput.text.toString())
+            val coll = firstInput.text.toString()
+            val obj = secondInput.text.toString()
+            when {
+                coll.isEmpty() -> Toast.makeText(
+                    this,
+                    "Please enter Collection ID.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                obj.isEmpty() -> Toast.makeText(
+                    this,
+                    "Please enter Object ID.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                else -> {
+                    executeRemove(coll, obj)
+                }
+            }
         }
         tvCancel.setOnClickListener {
             finish()
@@ -28,6 +44,10 @@ class RemoveObjectFromCollectionDialog : BaseDialogActivity() {
     }
 
     private fun executeRemove(collID: String, objID: String) {
+        if (objID.contains("s-")) {
+            Toast.makeText(this, "Please enter valid Object ID", Toast.LENGTH_SHORT).show()
+            return
+        }
         doAsync {
             try {
                 val success = IkarusApi(Constants.UTILITIES_SERVER_URL).removeColl(collID, objID)

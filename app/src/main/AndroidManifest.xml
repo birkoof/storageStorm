@@ -36,6 +36,9 @@
             android:name=".dialogs.RemoveObjectFromCollectionDialog"
             android:theme="@style/AppTheme.CustomPopup" />
         <activity
+            android:name=".dialogs.RemoveCollectionFromCollectionDialog"
+            android:theme="@style/AppTheme.CustomPopup" />
+        <activity
             android:name=".dialogs.AddObjectToCollectionDialog"
             android:theme="@style/AppTheme.CustomPopup" />
         <activity

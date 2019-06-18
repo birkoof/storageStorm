@@ -25,6 +25,7 @@ class CreateFragment : Fragment(), BackpressHandler {
     private lateinit var btnDeleteCollection: Button
     private lateinit var btnAddCollToColl: Button
     private lateinit var btnGetCollection: Button
+    private lateinit var btnRemoveCollFromColl: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -73,6 +74,10 @@ class CreateFragment : Fragment(), BackpressHandler {
         btnGetCollection = view.findViewById(R.id.btnGetCollection)
         btnGetCollection.setOnClickListener {
             startActivity(Intent(activity, GetCollectionDialog::class.java))
+        }
+        btnRemoveCollFromColl = view.findViewById(R.id.btnRemoveCollFromColl)
+        btnRemoveCollFromColl.setOnClickListener {
+            startActivity(Intent(activity, RemoveCollectionFromCollectionDialog::class.java))
         }
 
         return view
