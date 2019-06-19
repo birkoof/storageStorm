@@ -38,7 +38,7 @@ class CreateCollectionDialog : BaseDialogActivity() {
     private fun executeCreate(name: String, headID: String) {
         doAsync {
             try {
-                val ret = IkarusApi(Constants.UTILITIES_SERVER_URL).makeColl(name, headID)
+                val ret = IkarusApi(Constants.UTILITIES_SERVER_URL).makeColl(headID, name)
                 uiThread {
                     if (ret.isNullOrEmpty()) {
                         Toast.makeText(it, "Please enter valid Head ID", Toast.LENGTH_SHORT).show()
