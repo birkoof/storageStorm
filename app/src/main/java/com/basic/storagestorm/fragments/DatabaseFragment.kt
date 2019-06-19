@@ -46,21 +46,9 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         val view = inflater.inflate(R.layout.fragment_database, container, false)
 
         pathList.add(
-            Path(
-                Constants.HOME,
-                Constants.HOME,
-                Constants.HOME
-            ) {
-                updateContent(
-                    Constants.HOME,
-                    Constants.HOME,
-                    Constants.HOME
-                )
-                removeAllPathsAfter(Path(
-                    Constants.HOME,
-                    Constants.HOME,
-                    Constants.HOME
-                ) {})
+            Path(Constants.HOME, Constants.HOME, Constants.HOME) {
+                updateContent(Constants.HOME, Constants.HOME, Constants.HOME)
+                removeAllPathsAfter(Path(Constants.HOME, Constants.HOME, Constants.HOME) {})
         })
 
         tvNoConnection = view.findViewById(R.id.tvNoConnection)

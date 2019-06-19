@@ -65,18 +65,13 @@ class SearchResultActivity : AppCompatActivity() {
         btnRetry.visibility = View.GONE
         doAsync {
             try {
-                // TODO replace with search method
-                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid("s-000008")?.toMutableList()
+                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).searchObj(searchWord)
                 uiThread {
                     progressBar.visibility = View.GONE
                     tvResultFor.text = displayString
+
                     val resultData = mutableListOf<Pair<String, Any>>()
-                    resultData.add(
-                        Pair(
-                            Constants.CATEGORY,
-                            Constants.DATA_OBJECT
-                        )
-                    )
+                    resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
 
                     if (list.isNullOrEmpty()) {
                         tvResultFor.text = "No results for $searchWord."
