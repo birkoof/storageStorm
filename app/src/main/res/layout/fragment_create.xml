@@ -27,6 +27,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Create"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +41,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Delete"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -49,6 +53,8 @@
         android:id="@+id/btnEditObject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -64,6 +70,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Add to Collection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -77,23 +85,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Remove Object from Coll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAddObjectToColl" />
-
-    <Button
-        android:id="@+id/btnResetDB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Reset database"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRemoveObjectFromColl" />
-
 
     <RadioGroup
         android:id="@+id/radio"

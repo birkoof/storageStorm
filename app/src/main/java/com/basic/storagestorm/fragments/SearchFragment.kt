@@ -6,9 +6,7 @@ import android.os.Handler
 import android.support.design.widget.TextInputEditText
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -96,6 +94,16 @@ class SearchFragment : Fragment(), BackpressHandler {
         recyclerHistory.adapter = SearchHistoryAdapter(historyList.reversed(), activity) {
             onHistoryEntryPressed(it)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_search_fragment, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        Toast.makeText(activity, "Syncing...", Toast.LENGTH_SHORT).show()
+        activity?.sendBroadcast(Intent(Constants.REFRESH_DATA))
+        return true
     }
 
     companion object {

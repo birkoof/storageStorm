@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.basic.storagestorm.R
 import com.basic.storagestorm.fragments.CreateFragment
 import com.basic.storagestorm.fragments.DatabaseFragment
@@ -86,6 +88,16 @@ class MainActivity : AppCompatActivity(), BackpressHandler {
 
     override fun onBackButtonPressed(): Boolean {
         return (active as BackpressHandler).onBackButtonPressed()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if (active.isVisible) active.onCreateOptionsMenu(menu, menuInflater)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (active.isVisible) active.onOptionsItemSelected(item)
+        return true
     }
 
     fun toDatabaseFragment() {

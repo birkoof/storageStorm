@@ -40,6 +40,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="RETRY"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

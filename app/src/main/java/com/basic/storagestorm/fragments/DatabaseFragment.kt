@@ -7,9 +7,7 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -58,6 +56,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
         recyclerPath = view.findViewById(R.id.recyclerPath)
         recyclerPath.adapter = DatabasePathAdapter(pathList, activity)
         lastUsed = Pair(Constants.HOME, Constants.HOME)
+
         return view
     }
 
@@ -230,14 +229,13 @@ class DatabaseFragment : Fragment(), BackpressHandler {
             btnRetry.visibility = View.GONE
         }
         doAsync {
-            val objectJSON: String?
-            val ikarus = IkarusApi(Constants.UTILITIES_SERVER_URL)
             try {
-                objectJSON = ikarus.get(objectID)
+                val objectJSON: String? = IkarusApi(Constants.UTILITIES_SERVER_URL).get(objectID)
                 uiThread {
                     progressBar.visibility = View.GONE
                     if (objectJSON.isNullOrEmpty()) {
-                        Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "No data for $objectID.", Toast.LENGTH_SHORT).show()
+                        onBackButtonPressed()
                         return@uiThread
                     }
                     val resultData = mutableListOf<Pair<String, Any>>()
@@ -254,6 +252,18 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_database_fragment, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.menu_sync) {
+            updateView()
+            return true
+        }
+        return false
     }
 
     override fun onResume() {

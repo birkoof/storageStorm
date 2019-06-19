@@ -3,9 +3,7 @@ package com.basic.storagestorm.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
@@ -14,6 +12,7 @@ import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
 import com.basic.storagestorm.dialogs.*
 import com.basic.storagestorm.interfaces.BackpressHandler
+import com.basic.storagestorm.utilities.Constants
 
 class CreateFragment : Fragment(), BackpressHandler {
 
@@ -102,12 +101,17 @@ class CreateFragment : Fragment(), BackpressHandler {
             }
         }
 
-        btnResetDatabase = view.findViewById(R.id.btnResetDB)
-        btnResetDatabase.setOnClickListener {
-            resetDatabase()
-        }
-
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_create_fragment, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        Toast.makeText(activity, "Syncing...", Toast.LENGTH_SHORT).show()
+        activity?.sendBroadcast(Intent(Constants.REFRESH_DATA))
+        return true
     }
 
     companion object {
@@ -117,9 +121,5 @@ class CreateFragment : Fragment(), BackpressHandler {
     override fun onBackButtonPressed(): Boolean {
         (activity as MainActivity).toDatabaseFragment()
         return true
-    }
-
-    private fun resetDatabase() {
-        Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
     }
 }
