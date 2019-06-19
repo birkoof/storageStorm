@@ -81,7 +81,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     override fun onStart() {
         super.onStart()
-        getCollection("", "TODO handle name", true)
+        getCollection("", "", true)
     }
 
     override fun onDestroy() {
@@ -108,56 +108,94 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
         doAsync {
             try {
-                val sid = if (getAll) "s-000008" else collID // TODO REPLACE WITH A REAL GET ALL METHOD
-                val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid(sid).toMutableList()
-                uiThread {
-                    progressBar.visibility = View.GONE
-                    val resultData = mutableListOf<Pair<String, Any>>()
+                if (getAll) {
+                    val statResult = IkarusApi(Constants.UTILITIES_SERVER_URL).stat()
+                    uiThread {
+                        progressBar.visibility = View.GONE
 
-                    if (list.isNullOrEmpty()) {
-                        Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
-                        return@uiThread
-                    }
-
-                    val collectionList = mutableListOf<String>()
-                    val objectList = mutableListOf<String>()
-
-                    list.forEach {
-                        if (it.contains("s-")) collectionList.add(it)
-                        else objectList.add(it)
-                    }
-
-                    if (collectionList.isNotEmpty()) {
-                        resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
-                        collectionList.forEach {
-                            resultData.add(Pair(Constants.COLLECTION, Collection(name, it) {
-                                this@DatabaseFragment.updateContent(
-                                    name, it,
-                                    Constants.COLLECTION
-                                )
-                            }))
+                        if (statResult.cols.isEmpty() && statResult.ids.isEmpty()) {
+                            Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+                            return@uiThread
                         }
-                    }
 
-                    if (objectList.isNotEmpty()) {
-                        resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
-                        objectList.forEach {
-                            resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
-                                this@DatabaseFragment.updateContent(
-                                    null, it,
-                                    Constants.DATA_OBJECT
-                                )
-                            }))
+                        val resultData = mutableListOf<Pair<String, Any>>()
+
+                        if (statResult.cols.isNotEmpty()) {
+                            resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
+                            statResult.cols.forEach {
+                                resultData.add(Pair(Constants.COLLECTION, Collection(it.value, it.key) {
+                                    this@DatabaseFragment.updateContent(
+                                        it.value, it.key,
+                                        Constants.COLLECTION
+                                    )
+                                }))
+                            }
                         }
+
+                        if (statResult.ids.isNotEmpty()) {
+                            resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
+                            statResult.ids.forEach {
+                                resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
+                                    this@DatabaseFragment.updateContent(
+                                        null, it,
+                                        Constants.DATA_OBJECT
+                                    )
+                                }))
+                            }
+                        }
+
+                        recyclerContent.visibility = View.VISIBLE
+                        recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+
+                        lastUsed = Pair(Constants.HOME, Constants.HOME)
                     }
+                } else {
+                    val list = IkarusApi(Constants.UTILITIES_SERVER_URL).getCollBySid(collID).toMutableList()
+                    uiThread {
+                        progressBar.visibility = View.GONE
+                        val resultData = mutableListOf<Pair<String, Any>>()
 
-                    recyclerContent.visibility = View.VISIBLE
-                    recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+                        if (list.isNullOrEmpty()) {
+                            Toast.makeText(activity, "No data.", Toast.LENGTH_LONG).show()
+                            return@uiThread
+                        }
 
-                    lastUsed = if (getAll) {
-                        Pair(Constants.HOME, Constants.HOME)
-                    } else {
-                        Pair(Constants.COLLECTION, Collection(name, collID) {})
+                        val collectionList = mutableListOf<String>()
+                        val objectList = mutableListOf<String>()
+
+                        list.forEach {
+                            if (it.contains("s-")) collectionList.add(it)
+                            else objectList.add(it)
+                        }
+
+                        if (collectionList.isNotEmpty()) {
+                            resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
+                            collectionList.forEach {
+                                resultData.add(Pair(Constants.COLLECTION, Collection(name, it) {
+                                    this@DatabaseFragment.updateContent(
+                                        name, it,
+                                        Constants.COLLECTION
+                                    )
+                                }))
+                            }
+                        }
+
+                        if (objectList.isNotEmpty()) {
+                            resultData.add(Pair(Constants.CATEGORY, Constants.DATA_OBJECT))
+                            objectList.forEach {
+                                resultData.add(Pair(Constants.DATA_OBJECT, DataObject(it) {
+                                    this@DatabaseFragment.updateContent(
+                                        null, it,
+                                        Constants.DATA_OBJECT
+                                    )
+                                }))
+                            }
+                        }
+
+                        recyclerContent.visibility = View.VISIBLE
+                        recyclerContent.adapter = DatabaseContentAdapter(resultData, activity)
+
+                        lastUsed = Pair(Constants.COLLECTION, Collection(name, collID) {})
                     }
                 }
             } catch (exception: IOException) {
@@ -245,7 +283,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
      * */
     private fun updateContent(title: String?, id: String, type: String) {
         when (type) {
-            Constants.HOME -> getCollection("", "TODO handle name", true)
+            Constants.HOME -> getCollection("", "", true)
             Constants.COLLECTION -> getCollection(id, title, false)
             Constants.DATA_OBJECT -> getObjectData(id)
         }
@@ -296,7 +334,7 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     private fun updateView() {
         when (lastUsed.first) {
-            Constants.HOME -> getCollection("", "TODO handle name", true)
+            Constants.HOME -> getCollection("", "", true)
             Constants.DATA_OBJECT -> getObjectData(lastUsed.second as String)
             Constants.COLLECTION -> {
                 val collection = lastUsed.second as Collection
