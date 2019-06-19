@@ -39,8 +39,7 @@ class EditObject : AppCompatActivity() {
         btnSave.setOnClickListener {
             val editedJson = editText.text.toString()
             if (Helper.isValidJSON(editedJson)) {
-                Toast.makeText(this, "TODO update API!", Toast.LENGTH_LONG).show()
-//                executeUpdate(editedJson)
+                executeUpdate(editedJson)
             } else {
                 Toast.makeText(this, "Json is not valid!", Toast.LENGTH_LONG).show()
             }
@@ -55,10 +54,8 @@ class EditObject : AppCompatActivity() {
             return
         }
         doAsync {
-            val ikarus = IkarusApi(Constants.UTILITIES_SERVER_URL)
             try {
-                // TODO update API
-//                ikarus.update(objectID, editedJson)
+                IkarusApi(Constants.UTILITIES_SERVER_URL).change(objectID, editedJson)
                 uiThread {
                     progressBar.visibility = View.VISIBLE
                     Toast.makeText(it, "Object updated.", Toast.LENGTH_LONG).show()
