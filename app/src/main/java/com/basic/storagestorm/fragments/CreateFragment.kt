@@ -39,7 +39,7 @@ class CreateFragment : Fragment(), BackpressHandler {
         rbCollections = view.findViewById(R.id.rbCollections)
         rbObjects = view.findViewById(R.id.rbObjects)
 
-        rbCollections.setOnCheckedChangeListener { buttonView, isChecked ->
+        rbCollections.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 btnGedit.text = "GET"
                 btnAddToColl.text = "Add coll to coll"
@@ -48,7 +48,7 @@ class CreateFragment : Fragment(), BackpressHandler {
             }
         }
 
-        rbObjects.setOnCheckedChangeListener { buttonView, isChecked ->
+        rbObjects.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 btnGedit.text = "EDIT"
                 btnAddToColl.text = "Add object to coll"
