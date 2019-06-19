@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.Toast
 import com.basic.storagestorm.R
 import com.basic.storagestorm.activities.CreateObject
 import com.basic.storagestorm.activities.MainActivity
@@ -15,69 +17,94 @@ import com.basic.storagestorm.interfaces.BackpressHandler
 
 class CreateFragment : Fragment(), BackpressHandler {
 
-    private lateinit var btnCreateObject: Button
-    private lateinit var btnDeleteObject: Button
-    private lateinit var btnEditObject: Button
-    private lateinit var btnAddObjectToColl: Button
-    private lateinit var btnRemoveObjectFromColl: Button
+    private lateinit var btnCreate: Button
+    private lateinit var btnDelete: Button
+    private lateinit var btnGedit: Button
+    private lateinit var btnAddToColl: Button
+    private lateinit var btnRemoveFromColl: Button
+    private lateinit var btnResetDatabase: Button
 
-    private lateinit var btnCreateCollection: Button
-    private lateinit var btnDeleteCollection: Button
-    private lateinit var btnAddCollToColl: Button
-    private lateinit var btnGetCollection: Button
-    private lateinit var btnRemoveCollFromColl: Button
+    private lateinit var rbCollections: RadioButton
+    private lateinit var rbObjects: RadioButton
+
+    private val COLL = 0
+    private val OBJ = 1
+
+    private var currentlyChecked = COLL
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_create, container, false)
 
-        btnEditObject = view.findViewById(R.id.btnEditObject)
-        btnEditObject.setOnClickListener {
-            startActivity(Intent(activity, EditObjectDialog::class.java))
+        rbCollections = view.findViewById(R.id.rbCollections)
+        rbObjects = view.findViewById(R.id.rbObjects)
+
+        rbCollections.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                btnGedit.text = "GET"
+                btnAddToColl.text = "Add coll to coll"
+                btnRemoveFromColl.text = "Remove coll from coll"
+                currentlyChecked = COLL
+            }
         }
 
-        btnCreateObject = view.findViewById(R.id.btnCreateObject)
-        btnCreateObject.setOnClickListener {
-            startActivity(Intent(activity, CreateObject::class.java))
+        rbObjects.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                btnGedit.text = "EDIT"
+                btnAddToColl.text = "Add object to coll"
+                btnRemoveFromColl.text = "Remove object from coll"
+                currentlyChecked = OBJ
+            }
         }
 
-        btnDeleteObject = view.findViewById(R.id.btnDeleteObject)
-        btnDeleteObject.setOnClickListener {
-            startActivity(Intent(activity, DeleteObjectDialog::class.java))
+        btnGedit = view.findViewById(R.id.btnEditObject)
+        btnGedit.setOnClickListener {
+            if (currentlyChecked == OBJ) {
+                startActivity(Intent(activity, EditObjectDialog::class.java))
+            } else {
+                startActivity(Intent(activity, GetCollectionDialog::class.java))
+            }
         }
 
-        btnAddObjectToColl = view.findViewById(R.id.btnAddObjectToColl)
-        btnAddObjectToColl.setOnClickListener {
-            startActivity(Intent(activity, AddObjectToCollectionDialog::class.java))
+        btnCreate = view.findViewById(R.id.btnCreateObject)
+        btnCreate.setOnClickListener {
+            if (currentlyChecked == OBJ) {
+                startActivity(Intent(activity, CreateObject::class.java))
+            } else {
+                startActivity(Intent(activity, CreateCollectionDialog::class.java))
+            }
         }
 
-        btnRemoveObjectFromColl = view.findViewById(R.id.btnRemoveObjectFromColl)
-        btnRemoveObjectFromColl.setOnClickListener {
-            startActivity(Intent(activity, RemoveObjectFromCollectionDialog::class.java))
+        btnDelete = view.findViewById(R.id.btnDeleteObject)
+        btnDelete.setOnClickListener {
+            if (currentlyChecked == OBJ) {
+                startActivity(Intent(activity, DeleteObjectDialog::class.java))
+            } else {
+                startActivity(Intent(activity, DeleteCollectionDialog::class.java))
+            }
         }
 
-        btnCreateCollection = view.findViewById(R.id.btnCreateCollection)
-        btnCreateCollection.setOnClickListener {
-            startActivity(Intent(activity, CreateCollectionDialog::class.java))
+        btnAddToColl = view.findViewById(R.id.btnAddObjectToColl)
+        btnAddToColl.setOnClickListener {
+            if (currentlyChecked == OBJ) {
+                startActivity(Intent(activity, AddObjectToCollectionDialog::class.java))
+            } else {
+                startActivity(Intent(activity, AddCollectionToCollectionDialog::class.java))
+            }
         }
 
-        btnDeleteCollection = view.findViewById(R.id.btnDeleteCollection)
-        btnDeleteCollection.setOnClickListener {
-            startActivity(Intent(activity, DeleteCollectionDialog::class.java))
+        btnRemoveFromColl = view.findViewById(R.id.btnRemoveObjectFromColl)
+        btnRemoveFromColl.setOnClickListener {
+            if (currentlyChecked == OBJ) {
+                startActivity(Intent(activity, RemoveObjectFromCollectionDialog::class.java))
+            } else {
+                startActivity(Intent(activity, RemoveCollectionFromCollectionDialog::class.java))
+            }
         }
 
-        btnAddCollToColl = view.findViewById(R.id.btnAddCollToColl)
-        btnAddCollToColl.setOnClickListener {
-            startActivity(Intent(activity, AddCollectionToCollectionDialog::class.java))
-        }
-
-        btnGetCollection = view.findViewById(R.id.btnGetCollection)
-        btnGetCollection.setOnClickListener {
-            startActivity(Intent(activity, GetCollectionDialog::class.java))
-        }
-        btnRemoveCollFromColl = view.findViewById(R.id.btnRemoveCollFromColl)
-        btnRemoveCollFromColl.setOnClickListener {
-            startActivity(Intent(activity, RemoveCollectionFromCollectionDialog::class.java))
+        btnResetDatabase = view.findViewById(R.id.btnResetDB)
+        btnResetDatabase.setOnClickListener {
+            resetDatabase()
         }
 
         return view
@@ -90,5 +117,9 @@ class CreateFragment : Fragment(), BackpressHandler {
     override fun onBackButtonPressed(): Boolean {
         (activity as MainActivity).toDatabaseFragment()
         return true
+    }
+
+    private fun resetDatabase() {
+        Toast.makeText(activity, "TODO", Toast.LENGTH_SHORT).show()
     }
 }

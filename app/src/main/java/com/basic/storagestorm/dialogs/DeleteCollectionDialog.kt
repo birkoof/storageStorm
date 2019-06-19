@@ -14,7 +14,7 @@ class DeleteCollectionDialog : BaseDialogActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tvTitle.text = "Delete an Object"
+        tvTitle.text = "Delete a Collection"
         tvFirstText.text = "Collection ID"
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
