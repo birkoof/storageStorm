@@ -20,4 +20,9 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="AppTheme.Splash">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
 </resources>
