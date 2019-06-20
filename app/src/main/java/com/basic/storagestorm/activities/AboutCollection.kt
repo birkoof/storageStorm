@@ -90,11 +90,14 @@ class AboutCollection : AppCompatActivity() {
                     if (collectionList.isNotEmpty()) {
                         resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
                         collectionList.forEach {
-                            resultData.add(Pair(Constants.COLLECTION, Collection(name, it) {
+                            val split = it.split("(")
+                            val collName = split[0]
+                            val id = split[1].removeSuffix(")")
+
+                            resultData.add(Pair(Constants.COLLECTION, Collection(collName, id) {
                                 val intent = Intent(this@AboutCollection, AboutCollection::class.java)
-                                intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_ID, it)
-                                // TODO parse name
-                                intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_NAME, name)
+                                intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_ID, id)
+                                intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_NAME, collName)
                                 startActivity(intent)
                             }))
                         }

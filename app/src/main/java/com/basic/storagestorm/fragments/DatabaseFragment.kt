@@ -158,9 +158,12 @@ class DatabaseFragment : Fragment(), BackpressHandler {
                         if (collectionList.isNotEmpty()) {
                             resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
                             collectionList.forEach {
-                                resultData.add(Pair(Constants.COLLECTION, Collection(name, it) {
+                                val split = it.split("(")
+                                val collName = split[1].removeSuffix(")")
+                                val id = split[0]
+                                resultData.add(Pair(Constants.COLLECTION, Collection(collName, id) {
                                     this@DatabaseFragment.updateContent(
-                                        name, it,
+                                        collName, id,
                                         Constants.COLLECTION
                                     )
                                 }))
@@ -332,13 +335,23 @@ class DatabaseFragment : Fragment(), BackpressHandler {
 
     private fun updateView() {
         when (lastUsed.first) {
-            Constants.HOME -> getCollection("", "", true)
-            Constants.DATA_OBJECT -> getObjectData(lastUsed.second as String)
+            Constants.HOME -> {
+                getCollection("", "", true)
+                removeAllPathsAfter(Path(Constants.HOME, Constants.HOME, Constants.HOME) {})
+            }
+            Constants.DATA_OBJECT -> {
+                val objectID = lastUsed.second as String
+                getObjectData(objectID)
+                removeAllPathsAfter(Path(null, objectID, Constants.DATA_OBJECT) {})
+            }
             Constants.COLLECTION -> {
                 val collection = lastUsed.second as Collection
                 getCollection(collection.id, collection.name, false)
+                removeAllPathsAfter(Path(collection.name, collection.id, Constants.COLLECTION) {})
             }
         }
+
+        recyclerPath.smoothScrollToPosition(pathList.size - 1)
     }
 
     inner class RefreshContentReceiver : BroadcastReceiver() {
