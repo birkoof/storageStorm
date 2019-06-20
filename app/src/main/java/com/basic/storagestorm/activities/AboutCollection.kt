@@ -35,7 +35,6 @@ class AboutCollection : AppCompatActivity() {
 
         progressBar = findViewById(R.id.progressBar)
         collectionID = intent.getStringExtra(Constants.INTENT_EXTRA_COLLECTION_ID)
-        collectionName = intent.getStringExtra(Constants.INTENT_EXTRA_COLLECTION_NAME)
 
         displayString = "Displaying collection $collectionID"
         tvResultFor.text = displayString

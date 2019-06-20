@@ -45,7 +45,6 @@ class GetCollectionDialog : BaseDialogActivity() {
                     } else {
                         val intent = Intent(it, AboutCollection::class.java)
                         intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_ID, collID)
-                        intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_NAME, "TODO handle name")
                         startActivity(intent)
                         finish()
                     }
