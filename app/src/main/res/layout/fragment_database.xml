@@ -32,8 +32,6 @@
         android:layout_below="@+id/recyclerPath"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_bordered_button"
-        android:foreground="?android:attr/selectableItemBackground"
         android:text="No internet connection."
         android:textSize="20sp"
         android:visibility="gone" />
@@ -44,6 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvNoConnection"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_bordered_button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
