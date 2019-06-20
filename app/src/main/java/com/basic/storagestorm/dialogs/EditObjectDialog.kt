@@ -23,7 +23,11 @@ class EditObjectDialog : BaseDialogActivity() {
         firstInput.setText(sharedPref.getString(Constants.PREF_EDIT_OBJ_OBJ_ID, "000001"))
         tvSave.text = "EDIT"
         tvSave.setOnClickListener {
-            validateObjectID(firstInput.text.toString())
+            if (firstInput.text.toString().isEmpty()) {
+                Toast.makeText(this, "Please enter an Object ID", Toast.LENGTH_SHORT).show()
+            } else {
+                validateObjectID(firstInput.text.toString())
+            }
         }
         tvCancel.setOnClickListener {
             finish()
