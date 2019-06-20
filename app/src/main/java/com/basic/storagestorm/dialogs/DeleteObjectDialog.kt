@@ -18,6 +18,7 @@ class DeleteObjectDialog : BaseDialogActivity() {
         tvFirstText.text = "Object ID"
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
+        firstInput.setText(sharedPref.getString(Constants.PREF_DELETE_OBJ_OBJ_ID, "000001"))
         tvSave.text = "DELETE"
         tvSave.setOnClickListener {
             executeDelete(firstInput.text.toString())
@@ -34,6 +35,10 @@ class DeleteObjectDialog : BaseDialogActivity() {
                 uiThread {
                     if (success) {
                         Toast.makeText(it, "$objectID deleted!", Toast.LENGTH_SHORT).show()
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_DELETE_OBJ_OBJ_ID, objectID)
+                            apply()
+                        }
                         finish()
                     } else {
                         Toast.makeText(it, "Please enter valid Object ID", Toast.LENGTH_SHORT).show()

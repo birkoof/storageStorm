@@ -17,7 +17,8 @@ class RemoveObjectFromCollectionDialog : BaseDialogActivity() {
         tvTitle.text = "Remove Object from Collection"
         tvFirstText.text = "Collection ID"
         tvSecondText.text = "Object ID"
-
+        firstInput.setText(sharedPref.getString(Constants.PREF_REMOVE_OBJ_FROM_COLL_COLL_ID, "s-000001"))
+        secondInput.setText(sharedPref.getString(Constants.PREF_REMOVE_OBJ_FROM_COLL_OBJ_ID, "000001"))
         tvSave.text = "REMOVE"
         tvSave.setOnClickListener {
             val coll = firstInput.text.toString()
@@ -54,6 +55,11 @@ class RemoveObjectFromCollectionDialog : BaseDialogActivity() {
                 uiThread {
                     if (success) {
                         Toast.makeText(it, "$objID deleted from $collID!", Toast.LENGTH_SHORT).show()
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_REMOVE_OBJ_FROM_COLL_COLL_ID, collID)
+                            putString(Constants.PREF_REMOVE_OBJ_FROM_COLL_OBJ_ID, objID)
+                            apply()
+                        }
                         finish()
                     } else {
                         Toast.makeText(it, "Please enter valid Collection/Object ID", Toast.LENGTH_SHORT).show()

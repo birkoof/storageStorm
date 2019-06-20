@@ -20,6 +20,7 @@ class EditObjectDialog : BaseDialogActivity() {
         tvFirstText.text = "Object ID"
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
+        firstInput.setText(sharedPref.getString(Constants.PREF_EDIT_OBJ_OBJ_ID, "000001"))
         tvSave.text = "EDIT"
         tvSave.setOnClickListener {
             validateObjectID(firstInput.text.toString())
@@ -41,6 +42,10 @@ class EditObjectDialog : BaseDialogActivity() {
                         intent.putExtra(Constants.INTENT_EXTRA_OBJECT_ID, objectID)
                         intent.putExtra(Constants.INTENT_EXTRA_OBJECT_JSON, json)
                         startActivity(intent)
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_EDIT_OBJ_OBJ_ID, objectID)
+                            apply()
+                        }
                         finish()
                     }
                 }

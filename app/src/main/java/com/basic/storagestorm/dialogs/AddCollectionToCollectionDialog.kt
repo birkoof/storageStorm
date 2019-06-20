@@ -16,7 +16,8 @@ class AddCollectionToCollectionDialog : BaseDialogActivity() {
         tvTitle.text = "Insert Collection A to Collection B"
         tvFirstText.text = "ID of Collection A"
         tvSecondText.text = "ID of Collection B"
-
+        firstInput.setText(sharedPref.getString(Constants.PREF_ADD_COLL_TO_COLL_ID_A, "s-000001"))
+        secondInput.setText(sharedPref.getString(Constants.PREF_ADD_COLL_TO_COLL_ID_B, "s-000002"))
         tvSave.text = "ADD"
         tvSave.setOnClickListener {
             val sourceCollID = firstInput.text.toString()
@@ -50,6 +51,11 @@ class AddCollectionToCollectionDialog : BaseDialogActivity() {
                     uiThread {
                         if (success) {
                             Toast.makeText(it, "$sourceCollID inserted into $targetCollID!", Toast.LENGTH_SHORT).show()
+                            sharedPref.edit()?.run {
+                                putString(Constants.PREF_ADD_COLL_TO_COLL_ID_A, sourceCollID)
+                                putString(Constants.PREF_ADD_COLL_TO_COLL_ID_B, targetCollID)
+                                apply()
+                            }
                             finish()
                         } else {
                             Toast.makeText(it, "Please enter valid Collection ID", Toast.LENGTH_SHORT).show()

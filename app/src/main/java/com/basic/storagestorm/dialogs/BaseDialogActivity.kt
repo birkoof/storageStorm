@@ -1,5 +1,7 @@
 package com.basic.storagestorm.dialogs
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AppCompatActivity
@@ -15,7 +17,7 @@ open class BaseDialogActivity : AppCompatActivity() {
     private lateinit var tvSecondText: TextView
     private lateinit var firstInput: TextInputEditText
     private lateinit var secondInput: TextInputEditText
-
+    lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,5 +30,7 @@ open class BaseDialogActivity : AppCompatActivity() {
         tvSecondText = findViewById(R.id.tvSecondText)
         firstInput = findViewById(R.id.firstInput)
         secondInput = findViewById(R.id.secondInput)
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE)
     }
 }

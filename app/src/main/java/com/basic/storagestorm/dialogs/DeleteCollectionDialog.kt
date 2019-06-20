@@ -18,6 +18,7 @@ class DeleteCollectionDialog : BaseDialogActivity() {
         tvFirstText.text = "Collection ID"
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
+        firstInput.setText(sharedPref.getString(Constants.PREF_DELETE_COLL_COLL_ID, "s-000001"))
         tvSave.text = "DELETE"
         tvSave.setOnClickListener {
             executeDelete(firstInput.text.toString())
@@ -34,6 +35,10 @@ class DeleteCollectionDialog : BaseDialogActivity() {
                 uiThread {
                     if (success) {
                         Toast.makeText(it, "$collID deleted!", Toast.LENGTH_SHORT).show()
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_DELETE_COLL_COLL_ID, collID)
+                            apply()
+                        }
                         finish()
                     } else {
                         Toast.makeText(it, "Please enter valid Collection ID", Toast.LENGTH_SHORT).show()

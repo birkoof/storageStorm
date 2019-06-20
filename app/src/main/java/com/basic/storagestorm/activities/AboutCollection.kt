@@ -96,7 +96,6 @@ class AboutCollection : AppCompatActivity() {
                             resultData.add(Pair(Constants.COLLECTION, Collection(collName, id) {
                                 val intent = Intent(this@AboutCollection, AboutCollection::class.java)
                                 intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_ID, id)
-                                intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_NAME, collName)
                                 startActivity(intent)
                             }))
                         }

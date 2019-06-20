@@ -1,7 +1,6 @@
 package com.basic.storagestorm.dialogs
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import at.tugraz.ikarus.api.IkarusApi
@@ -13,12 +12,8 @@ import java.io.IOException
 
 class CreateCollectionDialog : BaseDialogActivity() {
 
-    private lateinit var sharedPref: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        sharedPref = getPreferences(Context.MODE_PRIVATE)
 
         tvTitle.text = "Create Collection"
         tvFirstText.text = "Collection name"
@@ -26,7 +21,7 @@ class CreateCollectionDialog : BaseDialogActivity() {
 
         firstInput.hint = "e.g. Users"
 
-        secondInput.setText(sharedPref.getString(Constants.PREF_CREATE_COLL_HEAD_ID, "000000"))
+        secondInput.setText(sharedPref.getString(Constants.PREF_CREATE_COLL_HEAD_ID, "000001"))
 
         tvSave.text = "CREATE"
         tvSave.setOnClickListener {

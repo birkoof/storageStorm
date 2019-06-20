@@ -22,6 +22,7 @@ class GetCollectionDialog : BaseDialogActivity() {
         tvSecondText.visibility = View.GONE
         secondInput.visibility = View.GONE
         tvSave.text = "GET"
+        firstInput.setText(sharedPref.getString(Constants.PREF_GET_COLL_COLL_ID, "s-000001"))
         tvSave.setOnClickListener {
             val collID = firstInput.text.toString()
             if (collID.isEmpty()) {
@@ -46,6 +47,10 @@ class GetCollectionDialog : BaseDialogActivity() {
                         val intent = Intent(it, AboutCollection::class.java)
                         intent.putExtra(Constants.INTENT_EXTRA_COLLECTION_ID, collID)
                         startActivity(intent)
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_GET_COLL_COLL_ID, collID)
+                            apply()
+                        }
                         finish()
                     }
                 }

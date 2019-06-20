@@ -17,7 +17,8 @@ class AddObjectToCollectionDialog : BaseDialogActivity() {
         tvTitle.text = "Add Object to Collection"
         tvFirstText.text = "Collection ID"
         tvSecondText.text = "Object ID"
-
+        firstInput.setText(sharedPref.getString(Constants.PREF_ADD_OBJ_TO_COLL_COLL_ID, "s-000001"))
+        secondInput.setText(sharedPref.getString(Constants.PREF_ADD_OBJ_TO_COLL_OBJ_ID, "000001"))
         tvSave.text = "ADD"
         tvSave.setOnClickListener {
             executeInsert(firstInput.text.toString(), secondInput.text.toString())
@@ -38,6 +39,11 @@ class AddObjectToCollectionDialog : BaseDialogActivity() {
                 uiThread {
                     if (success) {
                         Toast.makeText(it, "$objID inserted into $collID!", Toast.LENGTH_SHORT).show()
+                        sharedPref.edit()?.run {
+                            putString(Constants.PREF_ADD_OBJ_TO_COLL_OBJ_ID, objID)
+                            putString(Constants.PREF_ADD_OBJ_TO_COLL_COLL_ID, collID)
+                            apply()
+                        }
                         finish()
                     } else {
                         Toast.makeText(it, "Please enter valid Collection/Object ID", Toast.LENGTH_SHORT).show()
