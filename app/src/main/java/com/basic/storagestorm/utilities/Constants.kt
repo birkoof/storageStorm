@@ -22,6 +22,8 @@ class Constants {
         val REFRESH_DATA = "refresh_data"
 
         // preferences tag
-        val SHARED_PREFERENCES = "storage_storm_preference"
+        val SHARED_PREFERENCES_TAG = "storage_storm_preference"
+        val PREF_CREATE_COLL_COLL_ID = "create_coll_coll_id"
+        val PREF_CREATE_COLL_HEAD_ID = "create_coll_head_id"
     }
 }
