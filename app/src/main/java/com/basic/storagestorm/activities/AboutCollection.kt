@@ -25,7 +25,6 @@ class AboutCollection : AppCompatActivity() {
 
     private lateinit var displayString: String
     private lateinit var collectionID: String
-    private lateinit var collectionName: String
     private lateinit var refreshContentReceiver: RefreshContentReceiver
     private lateinit var progressBar: ProgressBar
 
@@ -44,7 +43,7 @@ class AboutCollection : AppCompatActivity() {
         super.onResume()
         refreshContentReceiver = RefreshContentReceiver()
         registerReceiver(refreshContentReceiver, IntentFilter(Constants.REFRESH_DATA))
-        executeGet(collectionID, collectionName)
+        executeGet(collectionID)
     }
 
     override fun onPause() {
@@ -52,14 +51,14 @@ class AboutCollection : AppCompatActivity() {
         unregisterReceiver(refreshContentReceiver)
     }
 
-    private fun executeGet(collID: String, name: String) {
+    private fun executeGet(collID: String) {
         progressBar.visibility = View.VISIBLE
         if (!Helper.hasNetworkConnection(this)) {
             tvResultFor.text = "No network connection."
             btnRetry.visibility = View.VISIBLE
             recyclerResult.visibility = View.GONE
             btnRetry.setOnClickListener {
-                executeGet(collID, name)
+                executeGet(collID)
             }
             progressBar.visibility = View.GONE
             return
@@ -90,8 +89,8 @@ class AboutCollection : AppCompatActivity() {
                         resultData.add(Pair(Constants.CATEGORY, Constants.COLLECTION))
                         collectionList.forEach {
                             val split = it.split("(")
-                            val collName = split[0]
-                            val id = split[1].removeSuffix(")")
+                            val id = split[0]
+                            val collName = split[1].removeSuffix(")")
 
                             resultData.add(Pair(Constants.COLLECTION, Collection(collName, id) {
                                 val intent = Intent(this@AboutCollection, AboutCollection::class.java)
@@ -126,7 +125,7 @@ class AboutCollection : AppCompatActivity() {
 
     inner class RefreshContentReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            executeGet(collectionID, collectionName)
+            executeGet(collectionID)
         }
     }
 
