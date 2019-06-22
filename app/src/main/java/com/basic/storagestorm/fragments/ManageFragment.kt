@@ -14,7 +14,7 @@ import com.basic.storagestorm.dialogs.*
 import com.basic.storagestorm.interfaces.BackpressHandler
 import com.basic.storagestorm.utilities.Constants
 
-class CreateFragment : Fragment(), BackpressHandler {
+class ManageFragment : Fragment(), BackpressHandler {
 
     private lateinit var btnCreate: Button
     private lateinit var btnDelete: Button
@@ -115,7 +115,7 @@ class CreateFragment : Fragment(), BackpressHandler {
     }
 
     companion object {
-        fun newInstance() = CreateFragment()
+        fun newInstance() = ManageFragment()
     }
 
     override fun onBackButtonPressed(): Boolean {

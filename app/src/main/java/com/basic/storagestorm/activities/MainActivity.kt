@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.basic.storagestorm.R
-import com.basic.storagestorm.fragments.CreateFragment
 import com.basic.storagestorm.fragments.DatabaseFragment
+import com.basic.storagestorm.fragments.ManageFragment
 import com.basic.storagestorm.fragments.SearchFragment
 import com.basic.storagestorm.interfaces.BackpressHandler
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,10 +31,10 @@ class MainActivity : AppCompatActivity(), BackpressHandler {
                 supportFragmentManager
                     .beginTransaction()
                     .hide(active)
-                    .show(createFragment)
+                    .show(manageFragment)
                     .commit()
 
-                active = createFragment
+                active = manageFragment
 
                 return@OnNavigationItemSelectedListener true
             }
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), BackpressHandler {
 
     private val databaseFragment = DatabaseFragment.newInstance()
     private val searchFragment = SearchFragment.newInstance()
-    private val createFragment = CreateFragment.newInstance()
+    private val manageFragment = ManageFragment.newInstance()
     var active: Fragment = databaseFragment
 
 
@@ -65,12 +65,12 @@ class MainActivity : AppCompatActivity(), BackpressHandler {
 
         // display database fragment first on start up
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, searchFragment, "databaseFragment")
+            .add(R.id.fragmentContainer, searchFragment, "searchFragment")
             .hide(searchFragment)
             .commit()
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, createFragment, "databaseFragment")
-            .hide(createFragment)
+            .add(R.id.fragmentContainer, manageFragment, "manageFragment")
+            .hide(manageFragment)
             .commit()
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, databaseFragment, "databaseFragment")
